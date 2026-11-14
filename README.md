@@ -230,8 +230,8 @@ Major/
 
 ### Step 1: Clone the Repository
 ```bash
-git clone https://github.com/AtulSharma05/Major.git
-cd Major
+git clone https://github.com/AtulSharma05/Self-Validating-Autonomous-Data-Analytics-Agent.git
+cd Self-Validating-Autonomous-Data-Analytics-Agent
 ```
 
 ---
