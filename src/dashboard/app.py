@@ -412,9 +412,9 @@ if run_btn and query_val:
                 if obj:
                     status_box.write(f"🎯 **Objective Extracted**: Target Metric `{obj.target_metric}`, Analysis `{obj.analysis_type.value}`")
             elif current_status == "PLAN_FORMULATED":
-                plan = event.get("plan")
-                if plan:
-                    status_box.write(f"📋 **Plan Formulated**: {len(plan.steps)} steps — *{plan.reasoning}*")
+                formulated_plan = event.get("plan")
+                if formulated_plan and hasattr(formulated_plan, "steps"):
+                    status_box.write(f"📋 **Plan Formulated**: {len(formulated_plan.steps)} steps — *{getattr(formulated_plan, 'reasoning', '')}*")
             elif current_status == "CODE_GENERATED":
                 step_idx = event.get("current_step_index", 0) + 1
                 c_type = event.get("current_code_type", "sql").upper()
@@ -457,6 +457,8 @@ res = st.session_state.analysis_result
 if res:
     ecs = res.get("ecs_report")
     obj = res.get("objective")
+    plan = res.get("plan")
+    plan_steps = plan.steps if (plan and hasattr(plan, "steps") and plan.steps) else []
     step_results = res.get("step_results", {})
     evidence_list = res.get("evidence_records", [])
     corr_history = res.get("correction_history", [])
@@ -493,7 +495,7 @@ if res:
     elif step_results:
         # Check for first scalar or row result
         first_step_res = step_results.get("step_1", {})
-        s1_step = plan.steps[0] if (plan and plan.steps) else None
+        s1_step = plan_steps[0] if len(plan_steps) > 0 else None
         s1_desc = s1_step.description if s1_step else "Step 1"
         if first_step_res.get("scalar") is not None:
             s_val = first_step_res["scalar"]
@@ -516,9 +518,9 @@ if res:
         # Check for step 2 (e.g. secondary metric or AOV or percentage change)
         second_step_res = step_results.get("step_2", {})
         third_step_res = step_results.get("step_3", {})
-        s2_step = plan.steps[1] if (plan and len(plan.steps) > 1) else None
+        s2_step = plan_steps[1] if len(plan_steps) > 1 else None
         s2_desc = s2_step.description if s2_step else "Step 2"
-        s3_step = plan.steps[2] if (plan and len(plan.steps) > 2) else None
+        s3_step = plan_steps[2] if len(plan_steps) > 2 else None
         s3_desc = s3_step.description if s3_step else "Step 3"
 
         if third_step_res.get("scalar") is not None:
@@ -543,11 +545,10 @@ if res:
             secondary_metric_sub = s2_desc[:40]
 
     # Plan validation status
-    plan = res.get("plan")
-    total_steps = len(plan.steps) if plan else 0
-    passed_steps = sum(1 for s in plan.steps if s.completed) if plan else 0
+    total_steps = len(plan_steps)
+    passed_steps = sum(1 for s in plan_steps if getattr(s, "completed", False))
     val_status_val = f"{passed_steps}/{total_steps} Steps Passed"
-    val_status_sub = "Deterministic invariants checked" if passed_steps == total_steps else "Caveats / discrepancies encountered"
+    val_status_sub = "Deterministic invariants checked" if (total_steps > 0 and passed_steps == total_steps) else "Caveats / discrepancies encountered"
 
     # ECS
     ecs_val = f"{ecs.score:.1f}% ({ecs.tier.value})" if ecs else "N/A"
@@ -949,9 +950,10 @@ if res:
 
         # 3. Multi-Step Planning
         if plan:
-            st.markdown(f"**Phase 3: Multi-Step Planning**\n- Reasoning: *{plan.reasoning}*\n- Steps Decomposed: {len(plan.steps)}")
-            for idx, s in enumerate(plan.steps, start=1):
-                st.markdown(f"  {idx}. `{s.step_id}`: {s.description}")
+            reasoning = getattr(plan, "reasoning", "")
+            st.markdown(f"**Phase 3: Multi-Step Planning**\n- Reasoning: *{reasoning}*\n- Steps Decomposed: {len(plan_steps)}")
+            for idx, s in enumerate(plan_steps, start=1):
+                st.markdown(f"  {idx}. `{getattr(s, 'step_id', f'step_{idx}')}`: {getattr(s, 'description', '')}")
 
         # 4 & 5. Code Gen & Sandboxed Execution
         st.markdown(f"**Phase 4 & 5: Code Generation & Sandboxed Execution**\n- Engine: In-memory DuckDB connection\n- Steps Executed: {len(step_results)}")
@@ -977,4 +979,5 @@ if res:
         st.markdown(f"**Phase 9: Evidence & Audit Provenance**\n- SHA-256 Checksums Recorded: {len(evidence_list)}\n- Tamper-proof audit trail stored in Provenance DAG.")
 
         # 10. Decision Support Synthesis
-        st.markdown(f"**Phase 10: Decision Support Synthesis**\n- Final Evidence Confidence Score (ECS): `{ecs.score:.1f}%` ({ecs.tier.value if ecs else 'N/A'})\n- Report synthesized deterministically.")
+        ecs_str = f"`{ecs.score:.1f}%` ({ecs.tier.value})" if ecs else "`N/A`"
+        st.markdown(f"**Phase 10: Decision Support Synthesis**\n- Final Evidence Confidence Score (ECS): {ecs_str}\n- Report synthesized deterministically.")

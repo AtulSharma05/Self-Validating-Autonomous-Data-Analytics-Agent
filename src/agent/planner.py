@@ -6,8 +6,16 @@ Supports both LLM-driven multi-step formulation and deterministic rule-based pla
 from __future__ import annotations
 
 import json
+import logging
 import re
 from typing import Optional
+
+logger = logging.getLogger(__name__)
+if not logger.handlers and not logging.getLogger().handlers:
+    _handler = logging.StreamHandler()
+    _handler.setFormatter(logging.Formatter("%(asctime)s [%(levelname)s] %(name)s: %(message)s"))
+    logger.addHandler(_handler)
+logger.setLevel(logging.DEBUG)
 
 from langchain_core.language_models.chat_models import BaseChatModel
 from langchain_core.messages import HumanMessage, SystemMessage
@@ -105,11 +113,20 @@ class Planner:
         Generates a validated AnalysisPlan. Falls back to deterministic templates
         if LLM call fails or is not reachable.
         """
+        used_planner = None
+        plan = None
         try:
-            return self._plan_with_llm(profile, objective)
-        except Exception:
-            # Deterministic heuristic fallback
-            return self.create_template_plan(profile, objective)
+            plan = self._plan_with_llm(profile, objective)
+            used_planner = "LLM planner"
+            logger.debug("[create_plan] Planner used: %s", used_planner)
+        except Exception as exc:
+            used_planner = "deterministic fallback"
+            logger.debug("[create_plan] LLM planner failed with exception: %s: %s", type(exc).__name__, exc, exc_info=True)
+            logger.debug("[create_plan] Planner used: %s", used_planner)
+            plan = self.create_template_plan(profile, objective)
+
+        logger.debug("[create_plan] Resulting plan.model_dump():\n%s", json.dumps(plan.model_dump(), indent=2, default=str))
+        return plan
 
     def _plan_with_llm(
         self,
@@ -129,6 +146,8 @@ class Planner:
             dimensions=", ".join(objective.candidate_dimensions) or "none",
         )
 
+        logger.debug("[_plan_with_llm] Complete planner user prompt:\n%s", user_content)
+
         messages = [
             SystemMessage(content=_PLANNER_SYSTEM_PROMPT),
             HumanMessage(content=user_content),
@@ -136,6 +155,8 @@ class Planner:
 
         response = self.llm.invoke(messages)
         raw_text = response.content if hasattr(response, "content") else str(response)
+
+        logger.debug("[_plan_with_llm] Raw LLM response before parsing:\n%s", raw_text)
 
         return self._parse_json_plan(raw_text, profile, objective)
 

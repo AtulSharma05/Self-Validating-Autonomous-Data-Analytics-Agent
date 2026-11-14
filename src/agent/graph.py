@@ -30,9 +30,18 @@ Workflow Graph:
 
 from __future__ import annotations
 
+import json
+import logging
 import math
 import re
 from typing import Any, Dict, List, Literal, Optional
+
+logger = logging.getLogger(__name__)
+if not logger.handlers and not logging.getLogger().handlers:
+    _handler = logging.StreamHandler()
+    _handler.setFormatter(logging.Formatter("%(asctime)s [%(levelname)s] %(name)s: %(message)s"))
+    logger.addHandler(_handler)
+logger.setLevel(logging.DEBUG)
 import duckdb
 from langchain_core.language_models.chat_models import BaseChatModel
 from langgraph.graph import END, START, StateGraph
@@ -94,6 +103,9 @@ class AnalyticsWorkflowEngine:
             objective = self.extractor.extract(profile, question)
         else:
             objective = state["objective"]
+
+        logger.debug("[objective_node] Original user question: %s", question)
+        logger.debug("[objective_node] Complete objective.model_dump():\n%s", json.dumps(objective.model_dump(), indent=2, default=str))
 
         q_lower = question.lower()
         is_diagnostic = (
@@ -167,6 +179,13 @@ class AnalyticsWorkflowEngine:
             step.description,
             previous_context=prev_context_str,
         )
+
+        logger.debug("[codegen_node] Active step ID: %s", step.step_id)
+        logger.debug("[codegen_node] Step description: %s", step.description)
+        logger.debug("[codegen_node] Metric column: %s", getattr(step, "metric_col", None))
+        logger.debug("[codegen_node] Aggregation function: %s", getattr(step, "agg_func", None))
+        logger.debug("[codegen_node] WHERE clause: %s", getattr(step, "where_clause", None))
+        logger.debug("[codegen_node] Generated %s code:\n%s", generated.code_type.upper(), generated.executable_code)
 
         return {
             "current_code": generated.executable_code,
@@ -704,6 +723,13 @@ class AnalyticsWorkflowEngine:
             overall_outcome = "COMPLETED_WITH_WARNINGS"
         else:
             overall_outcome = "FAILED_VALIDATION"
+
+        sem_dump = semantic_report.model_dump() if hasattr(semantic_report, "model_dump") else str(semantic_report)
+        logger.debug("[synthesize_node] Semantic coverage report:\n%s", json.dumps(sem_dump, indent=2, default=str))
+        logger.debug("[synthesize_node] Overall outcome: %s | ECS: %.2f%% (%s)", overall_outcome, ecs_report.score if ecs_report else 0.0, ecs_report.tier.value if ecs_report else "N/A")
+        print(f"[synthesize_node] Semantic coverage report:\n{json.dumps(sem_dump, indent=2, default=str)}")
+        print(f"[synthesize_node] Overall outcome: {overall_outcome}")
+        print(f"[synthesize_node] ECS: {ecs_report.score if ecs_report else 0.0:.2f}% ({ecs_report.tier.value if ecs_report else 'N/A'})")
 
         lines = [
             f"# Analytical Findings for: {state.get('user_question')}",
