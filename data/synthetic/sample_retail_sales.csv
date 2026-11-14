@@ -1,0 +1,984 @@
+order_id,order_date,region,product_category,product_name,units_sold,unit_price,discount_pct,revenue
+ORD-10001,2023-11-24,South,Electronics,Wireless Earbuds,3,274.19,0.0,822.57
+ORD-10002,2023-10-07,North,Electronics,4K Monitor,1,105.92,5.0,100.62
+ORD-10003,2023-01-14,South,Apparel,Running Shoes,5,64.92,0.0,324.6
+ORD-10004,2023-03-23,East,Home & Kitchen,Blender 500W,6,68.43,0.0,410.58
+ORD-10005,2023-02-19,East,Apparel,Winter Jacket,8,100.71,20.0,644.54
+ORD-10006,2023-07-13,East,Electronics,Wireless Earbuds,3,582.3,0.0,1746.9
+ORD-10007,2023-04-27,South,Home & Kitchen,Coffee Maker,7,221.29,10.0,1394.13
+ORD-10008,2023-07-06,South,Electronics,Wireless Earbuds,3,663.05,0.0,1989.15
+ORD-10009,2023-03-29,South,Apparel,Denim Jeans,5,66.23,20.0,264.92
+ORD-10010,2023-06-16,South,Home & Kitchen,Coffee Maker,6,211.69,15.0,1079.62
+ORD-10011,2023-04-19,South,Books,Business Strategy,7,37.94,15.0,225.74
+ORD-10012,2023-03-13,West,Electronics,Wireless Earbuds,2,861.11,10.0,1550.0
+ORD-10013,2023-03-12,North,Apparel,Cotton T-Shirt,3,106.11,5.0,302.41
+ORD-10014,2023-08-05,West,Apparel,Running Shoes,8,79.59,20.0,509.38
+ORD-10015,2023-10-11,North,Books,Data Science Handbook,5,38.86,10.0,174.87
+ORD-10016,2023-08-11,East,Electronics,Smartphone X,1,925.54,20.0,740.43
+ORD-10017,2023-11-17,South,Electronics,Laptop Pro,1,405.31,20.0,324.25
+ORD-10018,2023-09-29,West,Books,Business Strategy,6,15.68,10.0,84.67
+ORD-10019,2023-05-04,North,Books,Data Science Handbook,2,40.62,20.0,64.99
+ORD-10020,2023-03-07,East,Home & Kitchen,Air Fryer,7,148.45,5.0,987.19
+ORD-10021,2023-12-20,West,Electronics,Wireless Earbuds,3,945.78,10.0,2553.61
+ORD-10022,2023-09-22,South,Apparel,Denim Jeans,1,26.4,20.0,21.12
+ORD-10023,2023-10-29,North,Electronics,Smartphone X,1,279.18,10.0,251.26
+ORD-10024,2023-05-02,South,Electronics,4K Monitor,3,549.13,20.0,1317.91
+ORD-10025,2023-05-05,South,Home & Kitchen,Cookware Set,7,55.28,10.0,348.26
+ORD-10026,2023-08-28,North,Books,Data Science Handbook,6,17.12,0.0,102.72
+ORD-10027,2023-04-08,West,Apparel,Denim Jeans,8,38.35,5.0,291.46
+ORD-10028,2023-02-08,North,Apparel,Cotton T-Shirt,1,85.21,0.0,85.21
+ORD-10029,2023-05-02,West,Electronics,4K Monitor,2,265.96,0.0,531.92
+ORD-10030,2023-01-02,West,Books,Business Strategy,8,24.98,5.0,189.85
+ORD-10031,2023-04-22,East,Books,Data Science Handbook,8,17.0,20.0,108.8
+ORD-10032,2023-09-29,South,Electronics,Smartphone X,1,139.61,5.0,132.63
+ORD-10033,2023-10-19,North,Electronics,Smartphone X,3,444.73,20.0,1067.35
+ORD-10034,2023-05-14,South,Electronics,Wireless Earbuds,1,311.08,10.0,279.97
+ORD-10035,2023-02-07,North,Electronics,Smartphone X,3,547.74,10.0,1478.9
+ORD-10036,2023-06-28,East,Books,AI Revolution,8,24.97,20.0,159.81
+ORD-10037,2023-11-10,East,Books,Data Science Handbook,2,47.61,5.0,90.46
+ORD-10038,2023-02-24,East,Home & Kitchen,Air Fryer,4,95.58,10.0,344.09
+ORD-10039,2023-11-21,East,Books,Clean Code,1,46.69,0.0,46.69
+ORD-10040,2023-05-22,South,Electronics,Wireless Earbuds,2,634.29,5.0,1205.15
+ORD-10041,2023-10-10,North,Home & Kitchen,Coffee Maker,3,51.18,20.0,122.83
+ORD-10042,2023-07-09,West,Apparel,Denim Jeans,5,32.74,10.0,147.33
+ORD-10043,2023-01-21,South,Books,AI Revolution,6,38.34,20.0,184.03
+ORD-10044,2023-07-28,South,Books,AI Revolution,3,45.26,15.0,115.41
+ORD-10045,2023-06-20,South,Home & Kitchen,Cookware Set,2,92.36,15.0,157.01
+ORD-10046,2023-08-29,East,Electronics,4K Monitor,1,345.52,5.0,328.24
+ORD-10047,2023-04-09,North,Apparel,Winter Jacket,5,116.69,10.0,525.11
+ORD-10048,2023-07-24,North,Home & Kitchen,Blender 500W,5,59.8,5.0,284.05
+ORD-10049,2023-05-16,East,Electronics,4K Monitor,2,713.83,15.0,1213.51
+ORD-10050,2023-09-19,East,Electronics,Laptop Pro,2,118.62,0.0,237.24
+ORD-10051,2023-10-03,East,Home & Kitchen,Air Fryer,6,127.73,20.0,613.1
+ORD-10052,2023-03-05,East,Home & Kitchen,Blender 500W,6,178.38,15.0,909.74
+ORD-10053,2023-10-11,West,Electronics,4K Monitor,1,669.27,20.0,535.42
+ORD-10054,2023-07-27,East,Apparel,Cotton T-Shirt,7,48.69,20.0,272.66
+ORD-10055,2023-06-14,South,Apparel,Running Shoes,3,71.12,0.0,213.36
+ORD-10056,2023-12-06,North,Home & Kitchen,Blender 500W,4,210.96,10.0,759.46
+ORD-10057,2023-04-12,South,Electronics,Smartphone X,3,936.02,0.0,2808.06
+ORD-10058,2023-11-19,West,Apparel,Running Shoes,3,59.97,0.0,179.91
+ORD-10059,2023-02-24,South,Home & Kitchen,Air Fryer,8,207.88,0.0,1663.04
+ORD-10060,2023-03-04,East,Apparel,Running Shoes,8,115.0,20.0,736.0
+ORD-10061,2023-09-16,South,Apparel,Running Shoes,8,94.37,15.0,641.72
+ORD-10062,2023-05-07,West,Home & Kitchen,Blender 500W,5,169.75,15.0,721.44
+ORD-10063,2023-05-27,East,Electronics,Wireless Earbuds,1,856.93,5.0,814.08
+ORD-10064,2023-07-16,North,Home & Kitchen,Air Fryer,6,124.2,20.0,596.16
+ORD-10065,2023-02-01,West,Electronics,4K Monitor,3,867.21,0.0,2601.63
+ORD-10066,2023-10-22,East,Apparel,Cotton T-Shirt,7,49.86,15.0,296.67
+ORD-10067,2023-10-07,West,Home & Kitchen,Air Fryer,7,82.18,15.0,488.97
+ORD-10068,2023-06-22,South,Home & Kitchen,Cookware Set,3,215.71,20.0,517.7
+ORD-10069,2023-07-21,North,Apparel,Cotton T-Shirt,3,84.27,15.0,214.89
+ORD-10070,2023-05-14,West,Apparel,Denim Jeans,7,52.68,10.0,331.88
+ORD-10072,2023-10-04,South,Electronics,Wireless Earbuds,3,645.63,0.0,1936.89
+ORD-10073,2023-05-07,South,Electronics,Smartphone X,2,287.53,0.0,575.06
+ORD-10074,2023-04-22,East,Apparel,Winter Jacket,2,36.78,5.0,69.88
+ORD-10075,2023-02-25,West,Apparel,Winter Jacket,4,59.67,0.0,238.68
+ORD-10076,2023-11-18,North,Electronics,Wireless Earbuds,3,772.72,0.0,2318.16
+ORD-10077,2023-08-08,East,Home & Kitchen,Coffee Maker,7,37.72,15.0,224.43
+ORD-10078,2023-07-05,South,Home & Kitchen,Cookware Set,5,128.63,20.0,514.52
+ORD-10079,2023-10-03,West,Home & Kitchen,Cookware Set,5,212.53,10.0,956.39
+ORD-10080,2023-02-14,South,Electronics,4K Monitor,3,732.91,20.0,1758.98
+ORD-10081,2023-06-22,South,Electronics,Wireless Earbuds,2,504.17,10.0,907.51
+ORD-10082,2023-11-02,North,Home & Kitchen,Blender 500W,4,146.07,0.0,584.28
+ORD-10083,2023-07-28,West,Apparel,Denim Jeans,8,84.59,15.0,575.21
+ORD-10084,2023-02-17,South,Electronics,4K Monitor,3,346.4,10.0,935.28
+ORD-10085,2023-09-29,East,Electronics,Wireless Earbuds,2,691.48,10.0,1244.66
+ORD-10086,2023-03-03,North,Home & Kitchen,Blender 500W,3,194.72,5.0,554.95
+ORD-10087,2023-09-05,North,Electronics,Wireless Earbuds,2,804.39,5.0,1528.34
+ORD-10088,2023-06-04,East,Electronics,Laptop Pro,1,119.6,20.0,95.68
+ORD-10089,2023-03-06,North,Home & Kitchen,Cookware Set,5,222.63,15.0,946.18
+ORD-10090,2023-06-24,East,Electronics,Smartphone X,2,898.73,0.0,1797.46
+ORD-10091,2023-07-25,South,Apparel,Cotton T-Shirt,5,34.92,0.0,174.6
+ORD-10092,2023-03-02,South,Apparel,Running Shoes,7,97.57,15.0,580.54
+ORD-10093,2023-06-02,East,Books,Clean Code,1,34.9,20.0,27.92
+ORD-10094,2023-02-20,South,Books,AI Revolution,2,24.26,5.0,46.09
+ORD-10095,2023-10-10,West,Electronics,Smartphone X,3,471.94,15.0,1203.45
+ORD-10096,2023-04-29,West,Electronics,Wireless Earbuds,1,141.93,10.0,127.74
+ORD-10097,2023-11-17,West,Apparel,Denim Jeans,4,31.48,5.0,119.62
+ORD-10098,2023-03-14,East,Electronics,Laptop Pro,3,597.69,10.0,1613.76
+ORD-10099,2023-08-28,East,Home & Kitchen,Cookware Set,8,142.6,15.0,969.68
+ORD-10100,2023-01-21,East,Books,Business Strategy,4,15.91,20.0,50.91
+ORD-10101,2023-01-11,North,Books,Business Strategy,3,41.71,15.0,106.36
+ORD-10102,2023-08-15,West,Books,AI Revolution,8,37.22,0.0,297.76
+ORD-10103,2023-07-29,South,Electronics,Smartphone X,3,366.93,15.0,935.67
+ORD-10104,2023-07-25,West,Home & Kitchen,Coffee Maker,5,53.93,10.0,242.68
+ORD-10105,2023-07-26,West,Books,Data Science Handbook,4,29.46,20.0,94.27
+ORD-10106,2023-09-13,South,Home & Kitchen,Coffee Maker,3,92.42,10.0,249.53
+ORD-10107,2023-12-24,South,Apparel,Cotton T-Shirt,5,90.98,20.0,363.92
+ORD-10108,2023-07-28,West,Electronics,Smartphone X,1,643.51,15.0,546.98
+ORD-10109,2023-05-30,West,Apparel,Winter Jacket,8,103.47,5.0,786.37
+ORD-10110,2023-03-16,North,Apparel,Denim Jeans,7,47.62,10.0,300.01
+ORD-10111,2023-09-17,East,Electronics,Smartphone X,3,711.66,20.0,1707.98
+ORD-10112,2023-09-08,West,Books,Clean Code,7,27.08,15.0,161.13
+ORD-10113,2023-04-07,West,Books,AI Revolution,7,23.17,0.0,162.19
+ORD-10114,2023-08-31,West,Home & Kitchen,Cookware Set,3,247.51,15.0,631.15
+ORD-10115,2023-03-06,North,Apparel,Winter Jacket,8,107.42,0.0,859.36
+ORD-10116,2023-08-22,West,Electronics,Laptop Pro,1,923.86,15.0,785.28
+ORD-10117,2023-05-16,North,Electronics,4K Monitor,3,821.04,20.0,1970.5
+ORD-10118,2023-06-12,North,Home & Kitchen,Cookware Set,4,167.75,10.0,603.9
+ORD-10119,2023-02-16,North,Apparel,Cotton T-Shirt,5,64.37,0.0,321.85
+ORD-10120,2023-01-29,West,Electronics,Wireless Earbuds,3,206.65,15.0,526.96
+ORD-10121,2023-04-03,West,Electronics,Smartphone X,1,619.15,15.0,526.28
+ORD-10122,2023-03-15,West,Electronics,Wireless Earbuds,1,302.13,15.0,256.81
+ORD-10123,2023-12-13,West,Apparel,Cotton T-Shirt,5,114.52,15.0,486.71
+ORD-10124,2023-08-22,West,Home & Kitchen,Air Fryer,2,218.47,5.0,415.09
+ORD-10125,2023-07-03,North,Apparel,Winter Jacket,7,117.79,,742.08
+ORD-10126,2023-12-18,West,Home & Kitchen,Coffee Maker,5,214.06,5.0,1016.78
+ORD-10127,2023-06-30,East,Electronics,Laptop Pro,3,669.66,5.0,1908.53
+ORD-10128,2023-11-18,West,Home & Kitchen,Blender 500W,6,42.17,5.0,240.37
+ORD-10129,2023-06-01,South,Electronics,4K Monitor,3,254.69,10.0,687.66
+ORD-10130,2023-05-20,West,Home & Kitchen,Blender 500W,5,242.99,10.0,1093.46
+ORD-10131,2023-08-28,South,Books,AI Revolution,7,45.1,20.0,252.56
+ORD-10133,2023-12-11,East,Electronics,4K Monitor,1,174.26,15.0,148.12
+ORD-10134,2023-10-15,North,Electronics,Laptop Pro,2,632.8,10.0,1139.04
+ORD-10135,2023-03-01,East,Electronics,Smartphone X,1,946.46,0.0,946.46
+ORD-10136,2023-10-03,East,Electronics,4K Monitor,3,663.32,20.0,1591.97
+ORD-10137,2023-03-21,West,Books,Data Science Handbook,5,36.55,0.0,182.75
+ORD-10138,2023-04-22,East,Apparel,Denim Jeans,6,29.94,20.0,143.71
+ORD-10139,2023-11-27,East,Apparel,Running Shoes,2,38.98,15.0,66.27
+ORD-10140,2023-04-19,North,Home & Kitchen,Coffee Maker,4,204.16,5.0,775.81
+ORD-10141,2023-04-16,South,Electronics,Laptop Pro,1,787.36,10.0,708.62
+ORD-10142,2023-11-02,South,Electronics,Laptop Pro,1,549.99,0.0,549.99
+ORD-10143,2023-01-14,South,Electronics,Wireless Earbuds,1,592.3,5.0,562.68
+ORD-10144,2023-03-06,North,Home & Kitchen,Coffee Maker,6,137.39,20.0,659.47
+ORD-10145,2023-08-20,East,Apparel,Cotton T-Shirt,1,65.8,0.0,65.8
+ORD-10146,2023-07-25,West,Apparel,Cotton T-Shirt,8,91.24,0.0,729.92
+ORD-10147,2023-06-14,South,Home & Kitchen,Coffee Maker,6,94.13,15.0,480.06
+ORD-10148,2023-09-29,North,Electronics,4K Monitor,1,769.99,20.0,615.99
+ORD-10149,2023-04-21,West,Apparel,Denim Jeans,8,53.89,15.0,366.45
+ORD-10150,2023-02-18,East,Electronics,Wireless Earbuds,1,405.64,15.0,344.79
+ORD-10151,2023-02-13,East,Electronics,Smartphone X,3,786.24,0.0,2358.72
+ORD-10152,2023-10-15,West,Apparel,Cotton T-Shirt,7,55.36,0.0,387.52
+ORD-10153,2023-11-04,South,Electronics,Smartphone X,2,214.62,5.0,407.78
+ORD-10154,2023-06-29,North,Home & Kitchen,Blender 500W,4,198.96,15.0,676.46
+ORD-10155,2023-11-15,East,Home & Kitchen,Coffee Maker,5,41.22,10.0,185.49
+ORD-10156,2023-06-29,West,Electronics,Laptop Pro,3,140.54,0.0,421.62
+ORD-10158,2023-07-09,North,Electronics,Wireless Earbuds,1,848.51,5.0,806.08
+ORD-10159,2023-01-26,West,Home & Kitchen,Blender 500W,8,177.32,20.0,1134.85
+ORD-10160,2023-05-20,East,Electronics,Smartphone X,2,454.02,20.0,726.43
+ORD-10161,2023-12-08,West,Electronics,Laptop Pro,1,936.47,0.0,936.47
+ORD-10162,2023-04-19,East,Home & Kitchen,Blender 500W,1,105.55,15.0,89.72
+ORD-10163,2023-03-31,East,Electronics,Laptop Pro,3,142.71,0.0,428.13
+ORD-10164,2023-08-24,West,Books,Business Strategy,7,35.07,10.0,220.94
+ORD-10165,2023-01-11,West,Books,AI Revolution,6,44.12,0.0,264.72
+ORD-10166,2023-02-24,North,Electronics,4K Monitor,2,424.32,10.0,763.78
+ORD-10167,2023-03-28,South,Electronics,Smartphone X,2,868.15,10.0,1562.67
+ORD-10168,2023-11-27,North,Home & Kitchen,Air Fryer,4,66.49,5.0,252.66
+ORD-10169,2023-12-02,West,Electronics,4K Monitor,3,736.37,15.0,1877.74
+ORD-10170,2023-10-17,East,Home & Kitchen,Blender 500W,2,67.46,15.0,114.68
+ORD-10171,2023-06-05,East,Home & Kitchen,Coffee Maker,5,144.08,15.0,612.34
+ORD-10172,2023-01-30,North,Apparel,Winter Jacket,2,84.47,20.0,135.15
+ORD-10173,2023-07-16,West,Apparel,Cotton T-Shirt,4,110.9,10.0,399.24
+ORD-10175,2023-06-25,South,Books,Data Science Handbook,8,16.37,15.0,111.32
+ORD-10176,2023-11-09,East,Electronics,Wireless Earbuds,2,417.05,20.0,667.28
+ORD-10177,2023-11-20,East,Home & Kitchen,Coffee Maker,7,55.32,10.0,348.52
+ORD-10178,2023-12-03,East,Books,AI Revolution,3,17.85,10.0,48.2
+ORD-10179,2023-12-02,South,Home & Kitchen,Cookware Set,2,162.93,10.0,293.27
+ORD-10180,2023-11-26,North,Home & Kitchen,Air Fryer,7,173.9,20.0,973.84
+ORD-10181,2023-07-05,East,Electronics,Laptop Pro,2,904.47,5.0,1718.49
+ORD-10182,2023-03-12,North,Electronics,Wireless Earbuds,3,521.69,20.0,1252.06
+ORD-10183,2023-06-22,West,Books,AI Revolution,3,20.4,20.0,48.96
+ORD-10184,2023-03-26,West,Home & Kitchen,Coffee Maker,4,113.32,15.0,385.29
+ORD-10185,2023-08-18,East,Electronics,Laptop Pro,2,920.07,5.0,1748.13
+ORD-10186,2023-10-20,East,Books,Clean Code,7,42.23,5.0,280.83
+ORD-10187,2023-11-06,North,Electronics,Wireless Earbuds,2,637.83,20.0,1020.53
+ORD-10188,2023-12-31,East,Home & Kitchen,Coffee Maker,3,53.03,10.0,143.18
+ORD-10189,2023-09-20,North,Electronics,4K Monitor,1,903.38,15.0,767.87
+ORD-10190,2023-01-14,East,Apparel,Running Shoes,2,43.58,10.0,78.44
+ORD-10191,2023-06-13,South,Books,Business Strategy,5,19.82,15.0,84.23
+ORD-10192,2023-03-13,West,Home & Kitchen,Cookware Set,2,167.3,0.0,334.6
+ORD-10193,2023-03-18,North,Apparel,Running Shoes,4,97.62,10.0,351.43
+ORD-10194,2023-05-03,North,Apparel,Running Shoes,8,31.09,20.0,198.98
+ORD-10195,2023-11-20,South,Apparel,Denim Jeans,1,49.13,20.0,39.3
+ORD-10196,2023-10-20,East,Apparel,Cotton T-Shirt,1,26.77,15.0,22.75
+ORD-10197,2023-01-23,East,Home & Kitchen,Blender 500W,6,195.67,0.0,1174.02
+ORD-10198,2023-12-03,South,Home & Kitchen,Blender 500W,6,44.53,5.0,253.82
+ORD-10199,2023-12-17,South,Apparel,Running Shoes,2,101.15,15.0,171.96
+ORD-10200,2023-04-14,North,Electronics,Laptop Pro,2,354.57,20.0,567.31
+ORD-10201,2023-10-06,South,Apparel,Cotton T-Shirt,1,48.61,10.0,43.75
+ORD-10202,2023-07-08,West,Apparel,Running Shoes,7,109.46,10.0,689.6
+ORD-10203,2023-09-12,East,Home & Kitchen,Blender 500W,7,207.25,0.0,1450.75
+ORD-10204,2023-04-03,North,Apparel,Winter Jacket,5,28.01,10.0,126.05
+ORD-10205,2023-08-07,East,Electronics,4K Monitor,3,469.0,10.0,1266.3
+ORD-10206,2023-08-11,North,Electronics,Smartphone X,2,663.93,10.0,1195.07
+ORD-10207,2023-12-14,South,Electronics,Smartphone X,3,818.34,15.0,2086.77
+ORD-10208,2023-02-04,East,Electronics,Wireless Earbuds,3,413.08,0.0,1239.24
+ORD-10209,2023-12-14,East,Apparel,Winter Jacket,2,64.39,20.0,103.02
+ORD-10210,2023-07-07,South,Apparel,Winter Jacket,1,116.05,5.0,110.25
+ORD-10211,2023-07-18,East,Books,Data Science Handbook,8,42.12,5.0,320.11
+ORD-10212,2023-05-27,South,Home & Kitchen,Cookware Set,2,61.37,15.0,104.33
+ORD-10213,2023-08-16,East,Books,Business Strategy,5,39.83,10.0,179.23
+ORD-10214,2023-12-31,East,Home & Kitchen,Air Fryer,2,144.38,5.0,274.32
+ORD-10215,2023-05-02,East,Home & Kitchen,Coffee Maker,6,154.11,15.0,785.96
+ORD-10216,2023-10-10,North,Electronics,Smartphone X,3,349.08,15.0,890.15
+ORD-10217,2023-07-29,South,Home & Kitchen,Coffee Maker,2,244.06,15.0,414.9
+ORD-10218,2023-09-22,South,Electronics,Laptop Pro,1,456.38,0.0,456.38
+ORD-10219,2023-06-05,South,Electronics,Wireless Earbuds,3,381.04,10.0,1028.81
+ORD-10220,2023-05-09,South,Electronics,Wireless Earbuds,3,623.77,20.0,1497.05
+ORD-10221,2023-11-25,South,Electronics,Laptop Pro,3,653.1,20.0,1567.44
+ORD-10222,2023-10-16,North,Electronics,Smartphone X,3,119.55,20.0,286.92
+ORD-10223,2023-04-18,North,Home & Kitchen,Cookware Set,5,142.08,10.0,639.36
+ORD-10224,2023-12-17,North,Apparel,Running Shoes,3,88.86,15.0,226.59
+ORD-10225,2023-08-26,East,Electronics,Laptop Pro,2,829.49,10.0,1493.08
+ORD-10226,2023-03-08,East,Home & Kitchen,Coffee Maker,2,86.97,10.0,156.55
+ORD-10227,2023-03-14,West,Electronics,Wireless Earbuds,2,831.82,5.0,1580.46
+ORD-10228,2023-03-23,South,Home & Kitchen,Blender 500W,8,199.07,20.0,1274.05
+ORD-10229,2023-06-07,West,Apparel,Cotton T-Shirt,4,70.54,5.0,268.05
+ORD-10230,2023-01-25,West,Electronics,4K Monitor,1,328.6,0.0,328.6
+ORD-10231,2023-05-16,East,Home & Kitchen,Cookware Set,1,44.73,20.0,35.78
+ORD-10232,2023-07-05,West,Apparel,Cotton T-Shirt,5,70.43,20.0,281.72
+ORD-10233,2023-03-02,West,Electronics,Smartphone X,2,404.68,20.0,647.49
+ORD-10234,2023-03-15,North,Electronics,4K Monitor,1,119.41,10.0,107.47
+ORD-10235,2023-09-23,East,Apparel,Denim Jeans,6,113.14,5.0,644.9
+ORD-10236,2023-11-12,East,Home & Kitchen,Blender 500W,8,144.07,20.0,922.05
+ORD-10237,2023-01-09,West,Apparel,Cotton T-Shirt,1,78.37,20.0,62.7
+ORD-10238,2023-12-02,North,Home & Kitchen,Air Fryer,3,160.46,20.0,385.1
+ORD-10239,2023-11-14,South,Home & Kitchen,Cookware Set,4,211.66,0.0,846.64
+ORD-10240,2023-12-25,West,Electronics,Smartphone X,1,352.91,15.0,299.97
+ORD-10241,2023-07-30,North,Apparel,Running Shoes,4,90.58,20.0,289.86
+ORD-10242,2023-12-06,East,Apparel,Running Shoes,8,115.67,20.0,740.29
+ORD-10243,2023-07-01,West,Home & Kitchen,Blender 500W,4,76.34,10.0,274.82
+ORD-10244,2023-04-26,East,Books,Business Strategy,8,39.67,10.0,285.62
+ORD-10245,2023-10-14,East,Books,Business Strategy,7,19.27,15.0,114.66
+ORD-10246,2023-03-16,North,Electronics,Wireless Earbuds,2,381.34,10.0,686.41
+ORD-10247,2023-04-20,East,Electronics,Wireless Earbuds,3,199.43,20.0,478.63
+ORD-10248,2023-01-26,South,Home & Kitchen,Air Fryer,7,46.29,10.0,291.63
+ORD-10249,2023-02-21,North,Home & Kitchen,Air Fryer,3,242.37,15.0,618.04
+ORD-10250,2023-09-01,East,Apparel,Denim Jeans,1,52.12,0.0,52.12
+ORD-10251,2023-04-29,South,Apparel,Cotton T-Shirt,3,61.79,0.0,185.37
+ORD-10252,2023-07-23,East,Home & Kitchen,Air Fryer,1,223.5,10.0,201.15
+ORD-10253,2023-02-24,East,Books,Business Strategy,8,30.9,5.0,234.84
+ORD-10254,2023-08-28,East,Electronics,Smartphone X,2,221.37,10.0,398.47
+ORD-10255,2023-01-08,South,Home & Kitchen,Blender 500W,7,72.73,15.0,432.74
+ORD-10256,2023-02-14,South,Apparel,Cotton T-Shirt,8,118.17,10.0,850.82
+ORD-10257,2023-01-04,West,Electronics,Laptop Pro,2,735.77,10.0,1324.39
+ORD-10258,2023-10-21,South,Electronics,Wireless Earbuds,1,134.05,15.0,113.94
+ORD-10259,2023-07-27,North,Home & Kitchen,Blender 500W,5,172.32,10.0,775.44
+ORD-10260,2023-04-23,South,Books,Clean Code,6,30.92,15.0,157.69
+ORD-10261,2023-08-30,South,Home & Kitchen,Air Fryer,2,181.27,20.0,290.03
+ORD-10262,2023-12-27,North,Apparel,Cotton T-Shirt,4,102.88,20.0,329.22
+ORD-10263,2023-03-26,North,Electronics,4K Monitor,3,671.86,20.0,1612.46
+ORD-10264,2023-09-19,West,Apparel,Cotton T-Shirt,7,33.19,15.0,197.48
+ORD-10265,2023-10-14,North,Apparel,Winter Jacket,1,59.59,5.0,56.61
+ORD-10266,2023-01-24,North,Apparel,Cotton T-Shirt,2,113.46,15.0,192.88
+ORD-10268,2023-07-15,West,Apparel,Running Shoes,3,28.02,10.0,75.65
+ORD-10269,2023-10-03,South,Apparel,Denim Jeans,1,103.48,10.0,93.13
+ORD-10270,2023-10-06,South,Apparel,Running Shoes,6,44.75,5.0,255.07
+ORD-10271,2023-02-27,North,Electronics,4K Monitor,1,289.38,0.0,289.38
+ORD-10272,2023-08-17,South,Apparel,Cotton T-Shirt,7,94.05,15.0,559.6
+ORD-10273,2023-04-22,South,Home & Kitchen,Coffee Maker,5,143.34,5.0,680.87
+ORD-10274,2023-10-22,South,Electronics,Wireless Earbuds,1,342.54,20.0,274.03
+ORD-10275,2023-06-03,West,Electronics,Laptop Pro,1,563.59,10.0,507.23
+ORD-10276,2023-12-10,West,Apparel,Winter Jacket,5,60.83,15.0,258.53
+ORD-10277,2023-10-03,East,Apparel,Denim Jeans,3,105.75,15.0,269.66
+ORD-10278,2023-10-15,South,Apparel,Running Shoes,5,58.84,5.0,279.49
+ORD-10279,2023-02-10,North,Books,Business Strategy,4,33.75,0.0,135.0
+ORD-10280,2023-12-11,North,Home & Kitchen,Coffee Maker,4,75.46,15.0,256.56
+ORD-10281,2023-06-20,South,Electronics,Smartphone X,3,895.33,0.0,2685.99
+ORD-10282,2023-09-03,West,Books,AI Revolution,6,47.03,10.0,253.96
+ORD-10283,2023-10-01,East,Home & Kitchen,Blender 500W,8,112.32,15.0,763.78
+ORD-10284,2023-08-29,South,Home & Kitchen,Blender 500W,7,114.7,0.0,802.9
+ORD-10285,2023-04-24,East,Home & Kitchen,Coffee Maker,7,153.96,10.0,969.95
+ORD-10286,2023-06-18,West,Electronics,Laptop Pro,3,559.06,10.0,1509.46
+ORD-10287,2023-09-08,West,Books,Clean Code,6,20.89,5.0,119.07
+ORD-10288,2023-10-07,North,Apparel,Cotton T-Shirt,2,103.91,0.0,207.82
+ORD-10289,2023-07-31,North,Electronics,Laptop Pro,1,695.24,5.0,660.48
+ORD-10291,2023-09-30,North,Apparel,Cotton T-Shirt,5,72.94,20.0,291.76
+ORD-10292,2023-01-09,South,Apparel,Running Shoes,2,30.7,20.0,49.12
+ORD-10293,2023-04-09,East,Home & Kitchen,Blender 500W,7,92.47,0.0,647.29
+ORD-10294,2023-07-27,South,Apparel,Denim Jeans,2,50.0,0.0,100.0
+ORD-10295,2023-07-14,North,Apparel,Running Shoes,3,83.67,0.0,251.01
+ORD-10296,2023-08-11,North,Home & Kitchen,Blender 500W,1,227.38,5.0,216.01
+ORD-10297,2023-12-21,East,Books,Clean Code,2,16.63,10.0,29.93
+ORD-10298,2023-10-16,East,Home & Kitchen,Air Fryer,4,38.37,20.0,122.78
+ORD-10299,2023-12-31,East,Home & Kitchen,Coffee Maker,4,69.93,20.0,223.78
+ORD-10300,2023-07-19,West,Home & Kitchen,Blender 500W,3,197.46,0.0,592.38
+ORD-10301,2023-06-27,South,Electronics,4K Monitor,2,809.65,20.0,1295.44
+ORD-10302,2023-11-01,North,Apparel,Winter Jacket,8,83.41,15.0,567.19
+ORD-10303,2023-10-11,South,Books,Clean Code,7,38.79,0.0,271.53
+ORD-10304,2023-06-01,North,Home & Kitchen,Coffee Maker,7,92.61,5.0,615.86
+ORD-10305,2023-06-12,North,Apparel,Cotton T-Shirt,8,114.3,10.0,822.96
+ORD-10306,2023-02-22,West,Electronics,Laptop Pro,3,470.49,20.0,1129.18
+ORD-10307,2023-01-14,East,Electronics,Smartphone X,1,831.43,10.0,748.29
+ORD-10308,2023-02-13,South,Home & Kitchen,Air Fryer,3,182.34,5.0,519.67
+ORD-10309,2023-05-18,South,Apparel,Cotton T-Shirt,7,63.47,10.0,399.86
+ORD-10310,2023-02-09,West,Apparel,Denim Jeans,4,79.38,15.0,269.89
+ORD-10311,2023-06-05,East,Electronics,4K Monitor,2,812.2,10.0,1461.96
+ORD-10312,2023-08-09,East,Home & Kitchen,Air Fryer,4,103.94,15.0,353.4
+ORD-10313,2023-07-23,West,Books,Business Strategy,4,48.87,10.0,175.93
+ORD-10314,2023-07-21,South,Apparel,Denim Jeans,1,88.17,15.0,74.94
+ORD-10315,2023-04-18,North,Apparel,Winter Jacket,7,101.9,15.0,606.31
+ORD-10316,2023-06-05,West,Electronics,Laptop Pro,1,766.5,15.0,651.52
+ORD-10317,2023-09-03,North,Apparel,Running Shoes,6,99.07,20.0,475.54
+ORD-10318,2023-02-13,East,Electronics,Laptop Pro,3,224.71,0.0,674.13
+ORD-10319,2023-11-27,East,Home & Kitchen,Cookware Set,7,242.63,0.0,1698.41
+ORD-10320,2023-05-13,West,Electronics,Laptop Pro,2,405.48,20.0,648.77
+ORD-10321,2023-03-19,West,Electronics,Smartphone X,2,170.96,0.0,341.92
+ORD-10322,2023-03-14,West,Electronics,Wireless Earbuds,3,762.31,15.0,1943.89
+ORD-10323,2023-02-19,East,Apparel,Running Shoes,1,26.72,0.0,26.72
+ORD-10324,2023-06-25,South,Home & Kitchen,Air Fryer,3,145.94,10.0,394.04
+ORD-10325,2023-08-25,South,Electronics,4K Monitor,3,242.16,15.0,617.51
+ORD-10326,2023-11-11,West,Books,Clean Code,4,28.61,5.0,108.72
+ORD-10327,2023-12-27,North,Home & Kitchen,Coffee Maker,3,206.89,10.0,558.6
+ORD-10328,2023-08-23,East,Electronics,4K Monitor,3,599.36,15.0,1528.37
+ORD-10329,2023-06-28,South,Apparel,Running Shoes,5,101.37,20.0,405.48
+ORD-10330,2023-12-11,South,Electronics,Smartphone X,1,345.68,10.0,311.11
+ORD-10331,2023-09-19,West,Apparel,Denim Jeans,8,62.3,20.0,398.72
+ORD-10332,2023-11-27,South,Books,AI Revolution,3,32.14,5.0,91.6
+ORD-10333,2023-08-19,North,Home & Kitchen,Blender 500W,4,139.19,15.0,473.25
+ORD-10334,2023-09-16,West,Home & Kitchen,Cookware Set,8,124.36,15.0,845.65
+ORD-10335,2023-10-17,East,Electronics,Laptop Pro,1,108.44,20.0,86.75
+ORD-10336,2023-08-23,North,Apparel,Running Shoes,5,77.27,20.0,309.08
+ORD-10337,2023-07-07,West,Apparel,Cotton T-Shirt,7,74.64,0.0,522.48
+ORD-10338,2023-12-01,North,Home & Kitchen,Blender 500W,6,131.69,0.0,790.14
+ORD-10339,2023-03-02,South,Home & Kitchen,Air Fryer,6,209.3,20.0,1004.64
+ORD-10340,2023-03-26,South,Home & Kitchen,Air Fryer,6,208.17,20.0,999.22
+ORD-10341,2023-10-03,East,Electronics,Wireless Earbuds,3,578.28,0.0,1734.84
+ORD-10342,2023-07-30,South,Books,Business Strategy,3,39.55,5.0,112.72
+ORD-10343,2023-06-14,West,Home & Kitchen,Cookware Set,5,65.57,15.0,278.67
+ORD-10344,2023-02-08,West,Home & Kitchen,Coffee Maker,5,145.86,10.0,656.37
+ORD-10345,2023-09-07,North,Electronics,Smartphone X,2,715.91,10.0,1288.64
+ORD-10346,2023-10-01,South,Apparel,Running Shoes,6,69.47,10.0,375.14
+ORD-10347,2023-10-23,East,Electronics,4K Monitor,1,857.91,0.0,857.91
+ORD-10349,2023-08-08,East,Electronics,Laptop Pro,2,218.31,0.0,436.62
+ORD-10350,2023-05-09,North,Electronics,Laptop Pro,2,424.82,5.0,807.16
+ORD-10351,2023-02-16,South,Home & Kitchen,Coffee Maker,3,137.51,20.0,330.02
+ORD-10352,2023-12-15,East,Apparel,Cotton T-Shirt,7,101.71,5.0,676.37
+ORD-10353,2023-04-28,North,Apparel,Cotton T-Shirt,5,51.34,5.0,243.87
+ORD-10354,2023-03-10,North,Home & Kitchen,Air Fryer,1,149.06,20.0,119.25
+ORD-10355,2023-08-14,South,Apparel,Denim Jeans,8,111.99,5.0,851.12
+ORD-10356,2023-02-21,West,Electronics,Smartphone X,2,385.84,10.0,694.51
+ORD-10357,2023-05-07,South,Electronics,Smartphone X,3,561.46,20.0,1347.5
+ORD-10358,2023-12-20,South,Electronics,Wireless Earbuds,3,530.44,5.0,1511.75
+ORD-10359,2023-06-01,West,Home & Kitchen,Air Fryer,4,117.97,15.0,401.1
+ORD-10360,2023-02-06,East,Apparel,Cotton T-Shirt,3,113.39,15.0,289.14
+ORD-10361,2023-10-19,West,Apparel,Denim Jeans,2,115.45,0.0,230.9
+ORD-10362,2023-01-08,North,Electronics,Smartphone X,2,905.35,20.0,1448.56
+ORD-10363,2023-12-31,West,Apparel,Running Shoes,2,90.18,20.0,144.29
+ORD-10364,2023-03-20,North,Electronics,Wireless Earbuds,1,524.84,5.0,498.6
+ORD-10365,2023-07-20,East,Apparel,Cotton T-Shirt,4,89.87,0.0,359.48
+ORD-10366,2023-08-11,East,Electronics,Smartphone X,3,659.49,5.0,1879.55
+ORD-10367,2023-12-29,South,Electronics,Smartphone X,2,511.88,20.0,819.01
+ORD-10368,2023-05-13,East,Electronics,Laptop Pro,1,717.65,0.0,717.65
+ORD-10369,2023-08-08,East,Electronics,Smartphone X,3,699.72,0.0,2099.16
+ORD-10370,2023-09-19,South,Apparel,Running Shoes,5,56.77,0.0,283.85
+ORD-10371,2023-12-12,North,Home & Kitchen,Air Fryer,1,44.47,5.0,42.25
+ORD-10372,2023-07-06,South,Apparel,Denim Jeans,1,113.12,20.0,90.5
+ORD-10373,2023-12-02,South,Apparel,Winter Jacket,6,61.63,10.0,332.8
+ORD-10374,2023-10-20,South,Apparel,Cotton T-Shirt,1,42.32,15.0,35.97
+ORD-10375,2023-08-27,East,Books,Business Strategy,8,18.02,0.0,144.16
+ORD-10376,2023-05-30,South,Apparel,Winter Jacket,8,66.39,5.0,504.56
+ORD-10377,2023-10-07,South,Home & Kitchen,Air Fryer,7,36.37,0.0,254.59
+ORD-10378,2023-06-27,East,Home & Kitchen,Coffee Maker,7,35.31,10.0,222.45
+ORD-10379,2023-09-29,West,Books,Clean Code,3,48.64,10.0,131.33
+ORD-10380,2023-04-29,East,Books,Clean Code,2,31.05,20.0,49.68
+ORD-10381,2023-03-10,North,Home & Kitchen,Cookware Set,1,162.26,15.0,137.92
+ORD-10382,2023-03-08,East,Electronics,Wireless Earbuds,2,885.66,10.0,1594.19
+ORD-10383,2023-05-20,South,Electronics,Laptop Pro,3,758.55,0.0,2275.65
+ORD-10384,2023-03-26,West,Apparel,Winter Jacket,6,32.07,5.0,182.8
+ORD-10385,2023-08-26,North,Electronics,Smartphone X,3,217.13,10.0,586.25
+ORD-10386,2023-12-23,East,Home & Kitchen,Air Fryer,4,66.89,10.0,240.8
+ORD-10387,2023-01-26,South,Home & Kitchen,Blender 500W,7,41.68,15.0,248.0
+ORD-10388,2023-10-09,North,Electronics,4K Monitor,1,779.39,0.0,779.39
+ORD-10389,2023-04-24,East,Electronics,4K Monitor,3,677.07,0.0,2031.21
+ORD-10390,2023-05-13,North,Books,Data Science Handbook,4,49.9,15.0,169.66
+ORD-10391,2023-02-17,North,Books,Business Strategy,8,16.49,0.0,131.92
+ORD-10392,2023-10-21,West,Apparel,Running Shoes,7,22.95,5.0,152.62
+ORD-10393,2023-04-06,South,Electronics,4K Monitor,3,110.15,20.0,264.36
+ORD-10394,2023-06-01,North,Apparel,Running Shoes,7,28.77,5.0,191.32
+ORD-10395,2023-11-26,North,Books,AI Revolution,6,49.63,15.0,253.11
+ORD-10397,2023-01-14,North,Electronics,Laptop Pro,2,859.32,0.0,1718.64
+ORD-10398,2023-08-30,South,Apparel,Denim Jeans,4,30.01,10.0,108.04
+ORD-10399,2023-01-29,West,Home & Kitchen,Air Fryer,3,111.28,5.0,317.15
+ORD-10400,2023-06-12,North,Home & Kitchen,Blender 500W,6,186.24,20.0,893.95
+ORD-10401,2023-10-16,East,Books,Clean Code,1,21.14,0.0,21.14
+ORD-10402,2023-11-05,North,Electronics,4K Monitor,3,368.61,5.0,1050.54
+ORD-10403,2023-06-24,North,Home & Kitchen,Blender 500W,3,39.71,0.0,119.13
+ORD-10404,2023-07-06,West,Books,Business Strategy,6,35.51,10.0,191.75
+ORD-10405,2023-03-22,West,Home & Kitchen,Cookware Set,3,174.57,20.0,418.97
+ORD-10406,2023-11-11,South,Home & Kitchen,Air Fryer,5,116.35,5.0,552.66
+ORD-10407,2023-01-01,North,Books,Clean Code,6,21.37,20.0,102.58
+ORD-10408,2023-10-17,South,Electronics,4K Monitor,1,368.12,5.0,349.71
+ORD-10409,2023-06-13,East,Electronics,Smartphone X,2,468.57,5.0,890.28
+ORD-10410,2023-02-04,North,Apparel,Cotton T-Shirt,8,24.81,15.0,168.71
+ORD-10411,2023-07-31,East,Apparel,Running Shoes,2,74.6,15.0,126.82
+ORD-10412,2023-10-23,South,Home & Kitchen,Air Fryer,1,132.03,10.0,118.83
+ORD-10413,2023-05-14,East,Books,Data Science Handbook,7,20.95,5.0,139.32
+ORD-10414,2023-10-08,East,Books,Data Science Handbook,8,35.79,0.0,286.32
+ORD-10415,2023-12-01,South,Electronics,4K Monitor,2,126.59,5.0,240.52
+ORD-10416,2023-07-29,East,Home & Kitchen,Blender 500W,2,98.94,0.0,197.88
+ORD-10417,2023-10-09,North,Home & Kitchen,Air Fryer,7,112.58,0.0,788.06
+ORD-10418,2023-12-05,South,Home & Kitchen,Cookware Set,4,55.85,5.0,212.23
+ORD-10419,2023-02-11,East,Apparel,Cotton T-Shirt,8,98.49,15.0,669.73
+ORD-10420,2023-05-16,South,Electronics,4K Monitor,2,402.79,10.0,725.02
+ORD-10421,2023-01-23,East,Electronics,4K Monitor,2,276.83,20.0,442.93
+ORD-10422,2023-12-23,East,Home & Kitchen,Coffee Maker,7,208.76,20.0,1169.06
+ORD-10423,2023-02-01,West,Home & Kitchen,Cookware Set,4,158.13,15.0,537.64
+ORD-10424,2023-07-22,South,Books,Data Science Handbook,8,19.21,5.0,146.0
+ORD-10425,2023-03-27,South,Books,AI Revolution,2,16.49,15.0,28.03
+ORD-10426,2023-11-18,East,Electronics,Wireless Earbuds,1,872.4,0.0,872.4
+ORD-10427,2023-07-23,West,Apparel,Winter Jacket,1,111.72,20.0,89.38
+ORD-10428,2023-08-03,South,Electronics,Laptop Pro,3,572.94,0.0,1718.82
+ORD-10429,2023-10-16,East,Home & Kitchen,Blender 500W,5,223.75,15.0,950.94
+ORD-10430,2023-10-20,South,Home & Kitchen,Coffee Maker,3,94.21,20.0,226.1
+ORD-10431,2023-12-22,East,Apparel,Running Shoes,1,89.05,15.0,75.69
+ORD-10432,2023-07-10,East,Electronics,Wireless Earbuds,2,323.9,0.0,647.8
+ORD-10433,2023-04-27,East,Electronics,4K Monitor,2,314.4,20.0,503.04
+ORD-10434,2023-04-07,West,Apparel,Running Shoes,6,95.95,0.0,575.7
+ORD-10435,2023-03-23,South,Electronics,4K Monitor,3,759.05,20.0,1821.72
+ORD-10436,2023-04-09,North,Books,AI Revolution,8,23.73,0.0,189.84
+ORD-10437,2023-12-27,West,Electronics,Wireless Earbuds,3,519.46,0.0,1558.38
+ORD-10438,2023-05-04,South,Apparel,Running Shoes,8,116.05,20.0,742.72
+ORD-10439,2023-06-26,North,Electronics,Wireless Earbuds,2,328.01,0.0,656.02
+ORD-10440,2023-10-20,South,Home & Kitchen,Air Fryer,4,174.19,10.0,627.08
+ORD-10441,2023-09-20,West,Electronics,Smartphone X,3,643.21,0.0,1929.63
+ORD-10442,2023-11-08,East,Home & Kitchen,Blender 500W,7,126.12,10.0,794.56
+ORD-10443,2023-04-22,North,Apparel,Running Shoes,6,20.73,20.0,99.5
+ORD-10444,2023-11-08,West,Electronics,Smartphone X,2,135.54,10.0,243.97
+ORD-10445,2023-05-14,South,Home & Kitchen,Blender 500W,4,67.23,0.0,268.92
+ORD-10446,2023-11-04,South,Apparel,Winter Jacket,8,92.13,10.0,663.34
+ORD-10447,2023-08-03,South,Apparel,Cotton T-Shirt,4,54.32,20.0,173.82
+ORD-10448,2023-09-01,East,Books,Business Strategy,3,44.59,10.0,120.39
+ORD-10449,2023-03-07,East,Home & Kitchen,Air Fryer,4,175.7,10.0,632.52
+ORD-10450,2023-06-07,East,Apparel,Winter Jacket,5,46.06,15.0,195.75
+ORD-10451,2023-08-29,West,Electronics,Smartphone X,3,515.42,15.0,1314.32
+ORD-10452,2023-07-31,South,Electronics,Laptop Pro,2,943.34,15.0,1603.68
+ORD-10453,2023-08-23,North,Electronics,Laptop Pro,3,504.2,5.0,1436.97
+ORD-10454,2023-01-30,South,Electronics,Wireless Earbuds,1,742.24,20.0,593.79
+ORD-10455,2023-09-08,South,Home & Kitchen,Coffee Maker,7,167.11,15.0,994.3
+ORD-10456,2023-09-02,South,Apparel,Cotton T-Shirt,1,93.07,10.0,83.76
+ORD-10457,2023-09-29,South,Electronics,Smartphone X,2,276.85,10.0,498.33
+ORD-10458,2023-07-16,South,Apparel,Winter Jacket,1,26.53,10.0,23.88
+ORD-10459,2023-08-22,West,Home & Kitchen,Blender 500W,3,225.91,10.0,609.96
+ORD-10460,2023-09-08,South,Apparel,Denim Jeans,7,114.81,0.0,803.67
+ORD-10461,2023-03-09,South,Electronics,Smartphone X,3,187.15,0.0,561.45
+ORD-10462,2023-11-24,North,Electronics,Smartphone X,3,655.91,0.0,1967.73
+ORD-10463,2023-03-01,North,Apparel,Running Shoes,8,74.73,5.0,567.95
+ORD-10464,2023-12-18,West,Home & Kitchen,Blender 500W,5,177.26,20.0,709.04
+ORD-10465,2023-03-12,North,Apparel,Cotton T-Shirt,2,48.27,15.0,82.06
+ORD-10466,2023-04-13,East,Home & Kitchen,Air Fryer,5,186.24,5.0,884.64
+ORD-10467,2023-09-12,East,Books,Clean Code,1,23.21,0.0,23.21
+ORD-10468,2023-10-21,North,Home & Kitchen,Air Fryer,2,202.6,0.0,405.2
+ORD-10469,2023-11-26,East,Electronics,Wireless Earbuds,1,483.92,5.0,459.72
+ORD-10470,2023-05-29,West,Apparel,Winter Jacket,2,93.85,,187.7
+ORD-10471,2023-03-12,East,Home & Kitchen,Air Fryer,8,111.87,20.0,715.97
+ORD-10472,2023-02-17,South,Apparel,Winter Jacket,7,31.38,15.0,186.71
+ORD-10473,2023-07-17,West,Home & Kitchen,Cookware Set,3,174.5,0.0,523.5
+ORD-10474,2023-01-31,North,Books,AI Revolution,8,29.56,20.0,189.18
+ORD-10475,2023-04-03,North,Home & Kitchen,Blender 500W,3,220.45,15.0,562.15
+ORD-10476,2023-02-27,North,Books,Clean Code,6,17.22,0.0,103.32
+ORD-10477,2023-12-14,East,Apparel,Denim Jeans,2,71.91,15.0,122.25
+ORD-10478,2023-05-08,South,Apparel,Running Shoes,1,103.9,0.0,103.9
+ORD-10479,2023-03-22,West,Apparel,Running Shoes,2,106.94,15.0,181.8
+ORD-10480,2023-06-19,South,Books,Data Science Handbook,7,34.27,15.0,203.91
+ORD-10481,2023-02-10,North,Apparel,Running Shoes,8,105.66,10.0,760.75
+ORD-10482,2023-09-12,North,Home & Kitchen,Coffee Maker,1,121.74,20.0,97.39
+ORD-10483,2023-02-16,South,Home & Kitchen,Blender 500W,8,175.74,10.0,1265.33
+ORD-10484,2023-01-28,East,Home & Kitchen,Cookware Set,8,155.43,10.0,1119.1
+ORD-10485,2023-02-28,North,Electronics,Laptop Pro,3,376.98,10.0,1017.85
+ORD-10486,2023-07-11,South,Home & Kitchen,Coffee Maker,7,140.87,0.0,986.09
+ORD-10487,2023-04-11,South,Electronics,4K Monitor,1,477.63,10.0,429.87
+ORD-10489,2023-10-29,West,Books,AI Revolution,1,15.15,20.0,12.12
+ORD-10490,2023-10-27,South,Apparel,Denim Jeans,3,93.05,0.0,279.15
+ORD-10491,2023-11-04,West,Home & Kitchen,Blender 500W,4,125.01,10.0,450.04
+ORD-10492,2023-06-25,South,Books,Clean Code,5,19.84,20.0,79.36
+ORD-10493,2023-12-31,South,Home & Kitchen,Air Fryer,5,80.09,10.0,360.41
+ORD-10494,2023-03-09,East,Books,AI Revolution,6,39.86,20.0,191.33
+ORD-10495,2023-10-20,East,Books,Clean Code,7,45.71,0.0,319.97
+ORD-10496,2023-01-13,North,Apparel,Cotton T-Shirt,3,39.99,10.0,107.97
+ORD-10497,2023-03-16,South,Home & Kitchen,Blender 500W,1,197.02,10.0,177.32
+ORD-10498,2023-02-22,West,Home & Kitchen,Air Fryer,5,86.08,0.0,430.4
+ORD-10499,2023-07-18,North,Apparel,Winter Jacket,5,21.3,5.0,101.17
+ORD-10500,2023-08-15,South,Home & Kitchen,Blender 500W,4,201.87,10.0,726.73
+ORD-10501,2023-12-16,North,Electronics,Laptop Pro,2,408.16,10.0,734.69
+ORD-10502,2023-03-08,North,Electronics,Wireless Earbuds,3,367.59,5.0,1047.63
+ORD-10503,2023-06-15,West,Apparel,Winter Jacket,6,98.99,0.0,593.94
+ORD-10504,2023-06-12,North,Apparel,Denim Jeans,3,98.63,15.0,251.51
+ORD-10505,2023-07-26,South,Electronics,Laptop Pro,2,657.1,10.0,1182.78
+ORD-10506,2023-11-13,North,Apparel,Cotton T-Shirt,8,86.89,5.0,660.36
+ORD-10507,2023-11-11,North,Books,AI Revolution,6,38.89,15.0,198.34
+ORD-10508,2023-02-28,North,Apparel,Winter Jacket,6,111.13,20.0,533.42
+ORD-10509,2023-08-17,South,Apparel,Winter Jacket,2,52.03,0.0,104.06
+ORD-10510,2023-10-03,South,Apparel,Cotton T-Shirt,4,87.03,15.0,295.9
+ORD-10511,2023-04-16,North,Apparel,Running Shoes,3,94.69,0.0,284.07
+ORD-10512,2023-06-19,North,Electronics,Smartphone X,2,234.85,20.0,375.76
+ORD-10513,2023-04-27,West,Books,Clean Code,7,30.79,15.0,183.2
+ORD-10514,2023-07-19,North,Home & Kitchen,Coffee Maker,1,197.53,0.0,197.53
+ORD-10515,2023-09-15,North,Electronics,Wireless Earbuds,2,324.92,15.0,552.36
+ORD-10516,2023-12-05,South,Electronics,Laptop Pro,2,198.65,20.0,317.84
+ORD-10517,2023-11-21,North,Electronics,Wireless Earbuds,3,561.57,5.0,1600.47
+ORD-10518,2023-01-03,North,Apparel,Running Shoes,6,50.47,5.0,287.68
+ORD-10519,2023-11-27,South,Books,AI Revolution,5,21.44,5.0,101.84
+ORD-10520,2023-12-10,West,Home & Kitchen,Coffee Maker,2,173.61,10.0,312.5
+ORD-10521,2023-05-09,East,Electronics,4K Monitor,3,390.71,5.0,1113.52
+ORD-10522,2023-11-14,East,Electronics,Laptop Pro,2,502.7,20.0,804.32
+ORD-10523,2023-12-22,East,Apparel,Winter Jacket,3,115.87,0.0,347.61
+ORD-10524,2023-04-24,East,Home & Kitchen,Cookware Set,3,215.62,10.0,582.17
+ORD-10525,2023-08-25,West,Apparel,Winter Jacket,3,75.17,20.0,180.41
+ORD-10526,2023-05-24,South,Books,AI Revolution,2,24.21,0.0,48.42
+ORD-10527,2023-09-17,South,Home & Kitchen,Cookware Set,5,229.86,20.0,919.44
+ORD-10528,2023-10-04,East,Apparel,Denim Jeans,5,59.25,5.0,281.44
+ORD-10529,2023-09-19,North,Electronics,Wireless Earbuds,3,656.53,5.0,1871.11
+ORD-10530,2023-03-13,South,Apparel,Denim Jeans,8,93.59,10.0,673.85
+ORD-10531,2023-09-07,East,Electronics,Wireless Earbuds,3,283.6,5.0,808.26
+ORD-10532,2023-07-04,North,Apparel,Running Shoes,6,23.99,0.0,143.94
+ORD-10533,2023-09-24,East,Home & Kitchen,Blender 500W,3,159.41,15.0,406.5
+ORD-10534,2023-07-07,East,Apparel,Cotton T-Shirt,4,57.63,20.0,184.42
+ORD-10535,2023-06-26,North,Apparel,Running Shoes,3,70.18,15.0,178.96
+ORD-10536,2023-02-09,South,Apparel,Winter Jacket,3,35.02,10.0,94.55
+ORD-10537,2023-03-02,East,Home & Kitchen,Cookware Set,8,189.85,15.0,1290.98
+ORD-10538,2023-10-30,North,Electronics,4K Monitor,1,291.99,20.0,233.59
+ORD-10539,2023-03-10,South,Home & Kitchen,Coffee Maker,5,47.02,5.0,223.34
+ORD-10540,2023-07-27,East,Apparel,Cotton T-Shirt,4,114.73,15.0,390.08
+ORD-10541,2023-08-30,South,Books,AI Revolution,3,44.06,20.0,105.74
+ORD-10542,2023-04-04,South,Home & Kitchen,Blender 500W,6,190.7,15.0,972.57
+ORD-10543,2023-02-05,South,Electronics,4K Monitor,1,174.46,20.0,139.57
+ORD-10544,2023-09-16,North,Home & Kitchen,Air Fryer,1,73.15,20.0,58.52
+ORD-10545,2023-03-02,North,Electronics,Laptop Pro,3,860.36,15.0,2193.92
+ORD-10546,2023-07-09,South,Books,Clean Code,8,47.84,15.0,325.31
+ORD-10547,2023-12-23,South,Apparel,Running Shoes,4,45.45,0.0,181.8
+ORD-10548,2023-10-06,North,Apparel,Denim Jeans,1,90.91,20.0,72.73
+ORD-10549,2023-09-24,East,Electronics,Laptop Pro,1,435.7,5.0,413.91
+ORD-10550,2023-10-27,East,Electronics,4K Monitor,3,612.34,15.0,1561.47
+ORD-10551,2023-07-31,South,Apparel,Running Shoes,8,57.02,10.0,410.54
+ORD-10552,2023-10-23,South,Electronics,4K Monitor,3,823.85,0.0,2471.55
+ORD-10553,2023-08-17,North,Home & Kitchen,Air Fryer,7,81.11,10.0,510.99
+ORD-10554,2023-11-11,South,Home & Kitchen,Coffee Maker,1,118.66,0.0,118.66
+ORD-10555,2023-08-30,North,Books,Clean Code,4,17.24,10.0,62.06
+ORD-10556,2023-01-20,East,Home & Kitchen,Cookware Set,1,188.0,5.0,178.6
+ORD-10557,2023-08-13,South,Electronics,Wireless Earbuds,3,109.24,20.0,262.18
+ORD-10558,2023-04-29,East,Home & Kitchen,Coffee Maker,1,86.44,5.0,82.12
+ORD-10559,2023-05-22,West,Home & Kitchen,Blender 500W,4,122.17,20.0,390.94
+ORD-10560,2023-12-27,East,Electronics,Smartphone X,3,711.74,20.0,1708.18
+ORD-10561,2023-05-22,West,Electronics,Laptop Pro,3,888.85,0.0,2666.55
+ORD-10562,2023-07-28,East,Apparel,Cotton T-Shirt,2,54.0,20.0,86.4
+ORD-10563,2023-10-03,West,Home & Kitchen,Blender 500W,8,242.7,5.0,1844.52
+ORD-10564,2023-08-23,West,Home & Kitchen,Coffee Maker,2,60.0,15.0,102.0
+ORD-10565,2023-04-23,East,Home & Kitchen,Air Fryer,6,123.67,20.0,593.62
+ORD-10566,2023-12-25,East,Home & Kitchen,Air Fryer,6,55.0,0.0,330.0
+ORD-10567,2023-04-02,South,Apparel,Winter Jacket,5,109.43,5.0,519.79
+ORD-10568,2023-12-16,West,Books,AI Revolution,4,40.8,5.0,155.04
+ORD-10569,2023-04-16,East,Electronics,Laptop Pro,1,215.72,0.0,215.72
+ORD-10570,2023-12-13,North,Books,Clean Code,1,41.75,15.0,35.49
+ORD-10571,2023-06-11,West,Apparel,Winter Jacket,5,38.29,15.0,162.73
+ORD-10572,2023-10-23,West,Electronics,4K Monitor,1,897.5,20.0,718.0
+ORD-10573,2023-12-18,North,Home & Kitchen,Cookware Set,8,185.12,10.0,1332.86
+ORD-10574,2023-01-07,North,Home & Kitchen,Cookware Set,5,104.97,5.0,498.61
+ORD-10575,2023-05-02,East,Electronics,Wireless Earbuds,2,240.0,5.0,456.0
+ORD-10576,2023-07-10,East,Apparel,Running Shoes,3,65.07,20.0,156.17
+ORD-10577,2023-02-21,West,Home & Kitchen,Air Fryer,4,219.11,5.0,832.62
+ORD-10578,2023-03-18,South,Apparel,Cotton T-Shirt,3,62.15,20.0,149.16
+ORD-10579,2023-06-11,East,Home & Kitchen,Blender 500W,1,155.86,15.0,132.48
+ORD-10580,2023-03-25,West,Electronics,Wireless Earbuds,1,809.91,15.0,688.42
+ORD-10581,2023-05-14,East,Apparel,Winter Jacket,2,21.98,10.0,39.56
+ORD-10582,2023-11-07,East,Electronics,Laptop Pro,3,388.94,20.0,933.46
+ORD-10583,2023-08-17,East,Books,Clean Code,3,31.23,5.0,89.01
+ORD-10584,2023-06-22,North,Apparel,Running Shoes,6,27.91,5.0,159.09
+ORD-10585,2023-12-01,West,Electronics,Wireless Earbuds,2,315.99,10.0,568.78
+ORD-10586,2023-09-24,South,Books,Clean Code,1,21.44,5.0,20.37
+ORD-10587,2023-12-05,South,Electronics,Smartphone X,1,225.21,0.0,225.21
+ORD-10588,2023-08-31,West,Apparel,Cotton T-Shirt,2,72.4,0.0,144.8
+ORD-10589,2023-03-21,East,Electronics,4K Monitor,3,279.54,10.0,754.76
+ORD-10590,2023-03-06,North,Electronics,Laptop Pro,2,110.58,10.0,199.04
+ORD-10591,2023-08-28,West,Books,Business Strategy,3,19.73,20.0,47.35
+ORD-10592,2023-11-20,East,Home & Kitchen,Cookware Set,8,230.42,20.0,1474.69
+ORD-10593,2023-02-15,West,Apparel,Winter Jacket,5,45.98,,229.9
+ORD-10594,2023-03-11,North,Electronics,4K Monitor,2,678.36,15.0,1153.21
+ORD-10595,2023-08-09,North,Home & Kitchen,Air Fryer,4,152.87,15.0,519.76
+ORD-10596,2023-08-12,West,Apparel,Denim Jeans,4,102.84,10.0,370.22
+ORD-10597,2023-11-17,East,Electronics,Wireless Earbuds,3,644.16,10.0,1739.23
+ORD-10598,2023-02-05,North,Electronics,Wireless Earbuds,3,634.1,15.0,1616.96
+ORD-10599,2023-11-15,North,Apparel,Winter Jacket,1,35.21,5.0,33.45
+ORD-10600,2023-05-25,North,Electronics,4K Monitor,1,282.55,0.0,282.55
+ORD-10601,2023-06-25,East,Apparel,Running Shoes,1,66.37,10.0,59.73
+ORD-10602,2023-03-16,North,Electronics,4K Monitor,1,552.58,5.0,524.95
+ORD-10603,2023-05-09,North,Home & Kitchen,Coffee Maker,4,244.54,15.0,831.44
+ORD-10604,2023-08-15,South,Electronics,Smartphone X,1,480.93,20.0,384.74
+ORD-10605,2023-04-17,East,Apparel,Winter Jacket,1,35.86,20.0,28.69
+ORD-10606,2023-05-10,South,Apparel,Winter Jacket,1,56.04,5.0,53.24
+ORD-10607,2023-05-01,North,Home & Kitchen,Blender 500W,5,70.98,20.0,283.92
+ORD-10608,2023-05-05,West,Electronics,Smartphone X,1,678.91,10.0,611.02
+ORD-10609,2023-05-08,East,Electronics,Smartphone X,3,889.84,0.0,2669.52
+ORD-10610,2023-11-27,South,Electronics,Smartphone X,2,504.42,20.0,807.07
+ORD-10611,2023-06-27,South,Home & Kitchen,Cookware Set,7,39.59,10.0,249.42
+ORD-10612,2023-05-09,West,Books,Clean Code,8,34.57,5.0,262.73
+ORD-10613,2023-10-06,East,Electronics,4K Monitor,3,834.87,20.0,2003.69
+ORD-10614,2023-09-29,East,Electronics,Wireless Earbuds,2,551.2,0.0,1102.4
+ORD-10615,2023-09-17,North,Apparel,Denim Jeans,6,81.97,20.0,393.46
+ORD-10616,2023-02-02,South,Home & Kitchen,Cookware Set,8,147.68,20.0,945.15
+ORD-10617,2023-05-25,North,Electronics,Wireless Earbuds,3,163.74,0.0,491.22
+ORD-10618,2023-03-08,South,Electronics,Smartphone X,1,173.14,0.0,173.14
+ORD-10619,2023-11-25,East,Home & Kitchen,Cookware Set,4,45.55,20.0,145.76
+ORD-10620,2023-01-07,West,Books,AI Revolution,2,47.49,15.0,80.73
+ORD-10621,2023-02-01,East,Apparel,Running Shoes,1,99.42,20.0,79.54
+ORD-10622,2023-01-21,North,Home & Kitchen,Blender 500W,2,238.09,0.0,476.18
+ORD-10623,2023-09-30,South,Apparel,Denim Jeans,3,77.0,20.0,184.8
+ORD-10624,2023-08-01,West,Home & Kitchen,Blender 500W,7,186.05,0.0,1302.35
+ORD-10625,2023-04-03,South,Apparel,Winter Jacket,8,73.39,10.0,528.41
+ORD-10626,2023-10-09,East,Books,Business Strategy,7,29.43,10.0,185.41
+ORD-10627,2023-10-16,East,Apparel,Running Shoes,8,56.0,15.0,380.8
+ORD-10628,2023-01-01,North,Home & Kitchen,Blender 500W,5,146.29,0.0,731.45
+ORD-10629,2023-04-24,North,Electronics,Wireless Earbuds,3,751.23,10.0,2028.32
+ORD-10630,2023-09-19,North,Apparel,Denim Jeans,6,23.77,5.0,135.49
+ORD-10631,2023-07-07,South,Books,AI Revolution,5,23.97,0.0,119.85
+ORD-10632,2023-10-19,East,Books,Data Science Handbook,3,42.75,15.0,109.01
+ORD-10633,2023-12-20,East,Home & Kitchen,Coffee Maker,7,43.03,0.0,301.21
+ORD-10634,2023-06-21,West,Electronics,4K Monitor,1,889.31,5.0,844.84
+ORD-10635,2023-11-05,North,Books,Clean Code,1,25.67,10.0,23.1
+ORD-10636,2023-03-18,South,Electronics,Laptop Pro,3,123.95,15.0,316.07
+ORD-10637,2023-11-01,South,Apparel,Cotton T-Shirt,7,63.19,5.0,420.21
+ORD-10638,2023-02-12,West,Apparel,Cotton T-Shirt,7,46.26,20.0,259.06
+ORD-10639,2023-12-24,West,Electronics,Laptop Pro,2,566.59,15.0,963.2
+ORD-10640,2023-04-11,South,Apparel,Denim Jeans,7,27.16,10.0,171.11
+ORD-10641,2023-10-22,West,Electronics,4K Monitor,1,397.78,10.0,358.0
+ORD-10642,2023-12-02,South,Electronics,Wireless Earbuds,3,939.26,15.0,2395.11
+ORD-10643,2023-08-14,South,Electronics,Laptop Pro,1,676.26,0.0,676.26
+ORD-10644,2023-01-28,East,Electronics,Laptop Pro,3,91.95,0.0,275.85
+ORD-10645,2023-08-30,South,Electronics,Laptop Pro,3,257.31,10.0,694.74
+ORD-10646,2023-11-15,North,Home & Kitchen,Air Fryer,1,115.97,10.0,104.37
+ORD-10647,2023-05-26,North,Electronics,Wireless Earbuds,1,484.52,0.0,484.52
+ORD-10648,2023-05-19,North,Home & Kitchen,Blender 500W,7,39.1,5.0,260.01
+ORD-10649,2023-09-18,East,Books,Data Science Handbook,2,31.96,5.0,60.72
+ORD-10650,2023-08-23,North,Apparel,Cotton T-Shirt,5,44.74,10.0,201.33
+ORD-10651,2023-03-22,East,Electronics,Wireless Earbuds,1,623.95,20.0,499.16
+ORD-10652,2023-02-01,North,Home & Kitchen,Cookware Set,5,237.99,5.0,1130.45
+ORD-10653,2023-07-21,West,Home & Kitchen,Coffee Maker,4,146.95,15.0,499.63
+ORD-10654,2023-03-20,East,Apparel,Winter Jacket,3,64.92,5.0,185.02
+ORD-10655,2023-10-25,South,Apparel,Denim Jeans,3,50.9,15.0,129.79
+ORD-10656,2023-03-16,East,Home & Kitchen,Air Fryer,2,49.58,5.0,94.2
+ORD-10657,2023-03-16,West,Home & Kitchen,Blender 500W,5,241.66,15.0,1027.05
+ORD-10658,2023-11-23,South,Books,Business Strategy,2,42.27,5.0,80.31
+ORD-10659,2023-11-10,South,Home & Kitchen,Air Fryer,1,84.65,10.0,76.19
+ORD-10660,2023-09-02,East,Electronics,4K Monitor,2,240.06,15.0,408.1
+ORD-10661,2023-03-25,West,Electronics,Smartphone X,1,745.15,10.0,670.63
+ORD-10662,2023-04-24,South,Home & Kitchen,Air Fryer,8,49.22,20.0,315.01
+ORD-10663,2023-06-16,West,Books,AI Revolution,1,29.17,20.0,23.34
+ORD-10664,2023-07-14,North,Home & Kitchen,Cookware Set,8,146.94,15.0,999.19
+ORD-10665,2023-01-22,West,Books,AI Revolution,1,49.43,20.0,39.54
+ORD-10666,2023-11-19,East,Books,AI Revolution,5,30.38,10.0,136.71
+ORD-10667,2023-08-05,South,Electronics,Smartphone X,3,483.31,15.0,1232.44
+ORD-10669,2023-08-19,South,Electronics,4K Monitor,1,847.82,10.0,763.04
+ORD-10670,2023-11-29,North,Books,AI Revolution,8,18.19,10.0,130.97
+ORD-10671,2023-12-29,West,Apparel,Denim Jeans,1,75.03,5.0,71.28
+ORD-10672,2023-10-17,South,Books,AI Revolution,3,45.41,0.0,136.23
+ORD-10673,2023-06-08,East,Home & Kitchen,Cookware Set,2,169.69,5.0,322.41
+ORD-10674,2023-01-02,North,Home & Kitchen,Blender 500W,8,133.61,20.0,855.1
+ORD-10675,2023-11-08,South,Books,AI Revolution,8,35.61,15.0,242.15
+ORD-10676,2023-02-10,South,Home & Kitchen,Coffee Maker,5,224.67,20.0,898.68
+ORD-10677,2023-04-17,North,Electronics,Laptop Pro,1,648.35,5.0,615.93
+ORD-10678,2023-12-08,East,Apparel,Winter Jacket,1,112.04,0.0,112.04
+ORD-10679,2023-04-02,South,Electronics,Wireless Earbuds,3,920.68,20.0,2209.63
+ORD-10680,2023-01-19,East,Electronics,Wireless Earbuds,2,400.66,0.0,801.32
+ORD-10681,2023-10-09,South,Electronics,4K Monitor,2,186.16,10.0,335.09
+ORD-10682,2023-09-26,North,Electronics,Laptop Pro,3,175.09,20.0,420.22
+ORD-10683,2023-09-05,West,Home & Kitchen,Blender 500W,6,165.9,10.0,895.86
+ORD-10684,2023-11-16,West,Apparel,Denim Jeans,8,71.97,15.0,489.4
+ORD-10685,2023-11-09,South,Electronics,Wireless Earbuds,1,81.38,15.0,69.17
+ORD-10686,2023-03-02,West,Home & Kitchen,Air Fryer,6,124.02,10.0,669.71
+ORD-10687,2023-11-23,East,Electronics,Laptop Pro,1,301.34,10.0,271.21
+ORD-10688,2023-10-09,North,Electronics,Smartphone X,2,676.68,15.0,1150.36
+ORD-10689,2023-11-12,South,Books,AI Revolution,6,26.57,15.0,135.51
+ORD-10690,2023-01-19,South,Home & Kitchen,Cookware Set,6,169.85,15.0,866.23
+ORD-10691,2023-07-31,East,Books,Data Science Handbook,6,34.77,20.0,166.9
+ORD-10692,2023-04-17,East,Apparel,Winter Jacket,3,26.62,10.0,71.87
+ORD-10693,2023-06-23,West,Books,AI Revolution,2,21.56,10.0,38.81
+ORD-10694,2023-06-11,West,Home & Kitchen,Blender 500W,4,53.66,10.0,193.18
+ORD-10695,2023-06-04,South,Electronics,Wireless Earbuds,1,177.64,5.0,168.76
+ORD-10696,2023-08-16,South,Apparel,Running Shoes,8,39.02,20.0,249.73
+ORD-10697,2023-06-17,South,Electronics,Smartphone X,1,258.51,15.0,219.73
+ORD-10698,2023-09-25,North,Electronics,Wireless Earbuds,3,677.74,0.0,2033.22
+ORD-10699,2023-01-24,North,Electronics,Wireless Earbuds,2,582.48,5.0,1106.71
+ORD-10700,2023-04-09,West,Electronics,Wireless Earbuds,2,663.88,5.0,1261.37
+ORD-10701,2023-02-28,South,Electronics,Smartphone X,3,552.0,10.0,1490.4
+ORD-10702,2023-12-27,South,Home & Kitchen,Air Fryer,6,50.32,20.0,241.54
+ORD-10703,2023-03-08,North,Electronics,Smartphone X,1,413.73,15.0,351.67
+ORD-10704,2023-12-27,East,Apparel,Running Shoes,4,51.24,20.0,163.97
+ORD-10705,2023-08-27,West,Apparel,Cotton T-Shirt,5,29.73,15.0,126.35
+ORD-10706,2023-04-25,East,Electronics,Wireless Earbuds,3,421.11,10.0,1137.0
+ORD-10707,2023-06-16,North,Apparel,Cotton T-Shirt,6,67.53,15.0,344.4
+ORD-10708,2023-03-29,South,Electronics,Wireless Earbuds,2,521.92,0.0,1043.84
+ORD-10709,2023-11-29,West,Electronics,Wireless Earbuds,2,428.71,5.0,814.55
+ORD-10710,2023-10-08,West,Electronics,4K Monitor,1,137.47,20.0,109.98
+ORD-10711,2023-08-11,South,Apparel,Winter Jacket,2,37.31,20.0,59.7
+ORD-10712,2023-02-28,East,Apparel,Running Shoes,8,75.51,5.0,573.88
+ORD-10714,2023-11-27,South,Home & Kitchen,Coffee Maker,1,210.66,5.0,200.13
+ORD-10715,2023-08-20,West,Apparel,Running Shoes,6,39.57,10.0,213.68
+ORD-10716,2023-12-14,East,Electronics,4K Monitor,3,941.55,0.0,2824.65
+ORD-10717,2023-09-19,East,Apparel,Denim Jeans,1,26.24,0.0,26.24
+ORD-10718,2023-07-03,North,Electronics,Wireless Earbuds,3,284.66,20.0,683.18
+ORD-10719,2023-06-12,West,Home & Kitchen,Cookware Set,4,128.57,5.0,488.57
+ORD-10720,2023-04-07,West,Apparel,Winter Jacket,3,35.43,5.0,100.98
+ORD-10721,2023-11-28,West,Electronics,4K Monitor,1,928.23,0.0,928.23
+ORD-10722,2023-08-01,South,Books,Clean Code,7,30.9,20.0,173.04
+ORD-10723,2023-07-16,West,Apparel,Denim Jeans,8,80.46,5.0,611.5
+ORD-10724,2023-05-18,North,Apparel,Winter Jacket,8,117.82,10.0,848.3
+ORD-10725,2023-09-04,South,Books,Data Science Handbook,5,40.56,15.0,172.38
+ORD-10726,2023-09-25,South,Books,Data Science Handbook,2,31.54,20.0,50.46
+ORD-10727,2023-06-09,North,Home & Kitchen,Blender 500W,8,135.81,20.0,869.18
+ORD-10728,2023-08-04,East,Apparel,Winter Jacket,5,36.75,20.0,147.0
+ORD-10729,2023-11-19,North,Apparel,Denim Jeans,5,85.63,20.0,342.52
+ORD-10730,2023-09-06,East,Electronics,Smartphone X,3,299.28,10.0,808.06
+ORD-10731,2023-05-12,South,Electronics,Smartphone X,3,871.81,5.0,2484.66
+ORD-10732,2023-07-09,South,Home & Kitchen,Blender 500W,1,139.26,10.0,125.33
+ORD-10733,2023-03-16,West,Apparel,Denim Jeans,7,95.28,15.0,566.92
+ORD-10734,2023-08-14,South,Home & Kitchen,Air Fryer,6,159.22,0.0,955.32
+ORD-10735,2023-03-01,West,Electronics,4K Monitor,2,494.32,20.0,790.91
+ORD-10736,2023-12-16,East,Home & Kitchen,Cookware Set,7,66.21,0.0,463.47
+ORD-10737,2023-08-18,North,Apparel,Winter Jacket,6,29.74,15.0,151.67
+ORD-10738,2023-11-30,East,Books,Business Strategy,2,24.35,10.0,43.83
+ORD-10739,2023-07-20,South,Apparel,Denim Jeans,3,72.0,10.0,194.4
+ORD-10740,2023-12-11,North,Electronics,Smartphone X,3,437.79,0.0,1313.37
+ORD-10741,2023-06-29,East,Electronics,Wireless Earbuds,1,247.98,20.0,198.38
+ORD-10742,2023-11-01,North,Home & Kitchen,Air Fryer,2,187.24,0.0,374.48
+ORD-10743,2023-03-08,North,Apparel,Denim Jeans,5,89.57,10.0,403.06
+ORD-10744,2023-02-08,West,Home & Kitchen,Blender 500W,6,183.83,10.0,992.68
+ORD-10745,2023-02-07,West,Electronics,Smartphone X,1,418.07,10.0,376.26
+ORD-10746,2023-05-16,West,Electronics,Smartphone X,1,932.1,20.0,745.68
+ORD-10747,2023-11-27,West,Apparel,Denim Jeans,2,41.84,15.0,71.13
+ORD-10748,2023-02-22,East,Electronics,Smartphone X,1,756.2,15.0,642.77
+ORD-10749,2023-11-24,West,Electronics,Smartphone X,3,311.8,10.0,841.86
+ORD-10750,2023-10-22,West,Electronics,4K Monitor,3,459.37,0.0,1378.11
+ORD-10751,2023-01-02,North,Apparel,Running Shoes,6,76.72,10.0,414.29
+ORD-10752,2023-07-25,East,Electronics,Smartphone X,2,545.12,0.0,1090.24
+ORD-10753,2023-05-29,North,Home & Kitchen,Air Fryer,4,243.02,10.0,874.87
+ORD-10754,2023-02-24,West,Home & Kitchen,Blender 500W,8,53.25,5.0,404.7
+ORD-10755,2023-04-09,West,Electronics,Laptop Pro,3,418.23,10.0,1129.22
+ORD-10756,2023-08-19,North,Books,Data Science Handbook,6,26.87,0.0,161.22
+ORD-10757,2023-04-19,South,Home & Kitchen,Cookware Set,4,194.33,0.0,777.32
+ORD-10758,2023-03-14,West,Apparel,Cotton T-Shirt,1,110.72,5.0,105.18
+ORD-10759,2023-03-08,East,Electronics,Smartphone X,1,794.04,15.0,674.93
+ORD-10760,2023-10-30,North,Electronics,Smartphone X,3,512.51,5.0,1460.65
+ORD-10761,2023-04-14,East,Apparel,Running Shoes,3,32.08,10.0,86.62
+ORD-10762,2023-04-20,East,Home & Kitchen,Air Fryer,5,48.59,5.0,230.8
+ORD-10763,2023-03-28,West,Home & Kitchen,Air Fryer,1,87.38,5.0,83.01
+ORD-10764,2023-11-20,North,Home & Kitchen,Air Fryer,2,224.12,,448.24
+ORD-10765,2023-02-15,West,Home & Kitchen,Blender 500W,8,184.1,5.0,1399.16
+ORD-10766,2023-11-24,West,Electronics,4K Monitor,1,288.15,20.0,230.52
+ORD-10767,2023-11-02,North,Electronics,4K Monitor,2,625.66,10.0,1126.19
+ORD-10768,2023-10-13,North,Electronics,Smartphone X,3,618.46,20.0,1484.3
+ORD-10769,2023-11-17,North,Home & Kitchen,Blender 500W,3,76.65,15.0,195.46
+ORD-10770,2023-03-23,North,Home & Kitchen,Coffee Maker,5,173.65,5.0,824.84
+ORD-10771,2023-06-21,North,Home & Kitchen,Cookware Set,1,57.45,20.0,45.96
+ORD-10772,2023-01-15,North,Apparel,Cotton T-Shirt,8,109.51,20.0,700.86
+ORD-10773,2023-08-03,South,Electronics,Wireless Earbuds,2,757.71,5.0,1439.65
+ORD-10774,2023-07-31,South,Books,Clean Code,8,17.57,0.0,140.56
+ORD-10775,2023-03-16,South,Electronics,4K Monitor,1,416.98,15.0,354.43
+ORD-10776,2023-11-20,South,Apparel,Winter Jacket,1,53.59,20.0,42.87
+ORD-10777,2023-03-11,West,Electronics,4K Monitor,2,443.85,5.0,843.32
+ORD-10778,2023-11-06,South,Electronics,Laptop Pro,3,155.23,15.0,395.84
+ORD-10779,2023-04-21,East,Apparel,Running Shoes,7,21.45,5.0,142.64
+ORD-10780,2023-08-11,North,Apparel,Denim Jeans,1,61.78,0.0,61.78
+ORD-10782,2023-12-23,West,Home & Kitchen,Cookware Set,1,86.71,15.0,73.7
+ORD-10783,2023-03-09,North,Apparel,Denim Jeans,5,21.59,5.0,102.55
+ORD-10784,2023-10-20,West,Home & Kitchen,Coffee Maker,3,134.71,15.0,343.51
+ORD-10785,2023-07-09,North,Home & Kitchen,Coffee Maker,6,117.75,20.0,565.2
+ORD-10786,2023-08-07,North,Home & Kitchen,Air Fryer,6,168.4,0.0,1010.4
+ORD-10787,2023-12-12,North,Apparel,Cotton T-Shirt,8,58.3,20.0,373.12
+ORD-10788,2023-07-07,South,Electronics,Smartphone X,2,200.41,5.0,380.78
+ORD-10789,2023-11-29,South,Apparel,Denim Jeans,5,52.05,20.0,208.2
+ORD-10790,2023-05-22,East,Electronics,Wireless Earbuds,3,473.6,20.0,1136.64
+ORD-10791,2023-08-29,West,Home & Kitchen,Blender 500W,2,168.5,5.0,320.15
+ORD-10792,2023-08-23,South,Electronics,4K Monitor,1,330.88,0.0,330.88
+ORD-10793,2023-02-27,South,Home & Kitchen,Cookware Set,1,223.12,10.0,200.81
+ORD-10794,2023-12-16,West,Apparel,Denim Jeans,8,54.67,0.0,437.36
+ORD-10795,2023-02-02,East,Electronics,Laptop Pro,2,438.17,10.0,788.71
+ORD-10796,2023-12-07,West,Home & Kitchen,Cookware Set,3,100.38,10.0,271.03
+ORD-10797,2023-05-14,East,Electronics,Wireless Earbuds,1,749.68,5.0,712.2
+ORD-10798,2023-08-22,East,Books,AI Revolution,3,21.38,5.0,60.93
+ORD-10799,2023-03-01,South,Electronics,Wireless Earbuds,2,463.57,5.0,880.78
+ORD-10800,2023-12-29,East,Electronics,Wireless Earbuds,2,208.71,20.0,333.94
+ORD-10801,2023-10-01,West,Electronics,Smartphone X,1,890.03,15.0,756.53
+ORD-10802,2023-03-21,East,Electronics,Wireless Earbuds,2,492.3,20.0,787.68
+ORD-10803,2023-10-17,East,Home & Kitchen,Cookware Set,8,183.17,0.0,1465.36
+ORD-10804,2023-10-10,West,Electronics,Smartphone X,1,617.24,15.0,524.65
+ORD-10805,2023-06-17,South,Electronics,Laptop Pro,2,759.72,5.0,1443.47
+ORD-10806,2023-10-03,West,Home & Kitchen,Coffee Maker,6,76.81,20.0,368.69
+ORD-10807,2023-01-29,West,Books,Business Strategy,7,20.18,10.0,127.13
+ORD-10808,2023-01-07,East,Electronics,Wireless Earbuds,3,930.45,0.0,2791.35
+ORD-10809,2023-08-16,West,Home & Kitchen,Cookware Set,7,97.06,15.0,577.51
+ORD-10810,2023-10-28,South,Apparel,Denim Jeans,6,50.32,0.0,301.92
+ORD-10811,2023-10-30,North,Home & Kitchen,Coffee Maker,5,123.03,15.0,522.88
+ORD-10812,2023-08-25,South,Home & Kitchen,Air Fryer,7,74.99,10.0,472.44
+ORD-10813,2023-01-22,East,Home & Kitchen,Blender 500W,8,141.23,5.0,1073.35
+ORD-10814,2023-01-02,West,Electronics,Wireless Earbuds,3,188.03,10.0,507.68
+ORD-10815,2023-09-09,North,Books,AI Revolution,5,19.18,15.0,81.52
+ORD-10816,2023-02-04,West,Apparel,Winter Jacket,5,76.56,15.0,325.38
+ORD-10817,2023-03-03,East,Apparel,Cotton T-Shirt,1,36.28,5.0,34.47
+ORD-10818,2023-12-21,North,Electronics,Laptop Pro,2,317.22,10.0,571.0
+ORD-10819,2023-05-30,South,Apparel,Cotton T-Shirt,3,96.64,0.0,289.92
+ORD-10820,2023-03-27,East,Apparel,Winter Jacket,6,47.15,0.0,282.9
+ORD-10821,2023-06-30,South,Home & Kitchen,Coffee Maker,6,146.41,15.0,746.69
+ORD-10822,2023-03-25,South,Electronics,Laptop Pro,3,803.47,20.0,1928.33
+ORD-10823,2023-09-27,West,Home & Kitchen,Coffee Maker,2,134.01,0.0,268.02
+ORD-10824,2023-01-09,East,Apparel,Winter Jacket,8,33.9,20.0,216.96
+ORD-10825,2023-06-25,North,Electronics,Wireless Earbuds,1,727.68,5.0,691.3
+ORD-10826,2023-12-22,East,Electronics,Laptop Pro,1,189.05,0.0,189.05
+ORD-10827,2023-02-27,West,Electronics,4K Monitor,1,116.99,0.0,116.99
+ORD-10828,2023-09-20,North,Apparel,Running Shoes,1,110.85,0.0,110.85
+ORD-10829,2023-01-06,South,Home & Kitchen,Coffee Maker,4,161.33,5.0,613.05
+ORD-10830,2023-01-15,East,Electronics,Wireless Earbuds,3,386.42,20.0,927.41
+ORD-10831,2023-10-19,South,Electronics,Smartphone X,2,702.76,5.0,1335.24
+ORD-10832,2023-10-03,South,Electronics,Smartphone X,3,880.82,15.0,2246.09
+ORD-10833,2023-10-29,South,Electronics,Smartphone X,2,806.23,15.0,1370.59
+ORD-10834,2023-04-27,North,Apparel,Winter Jacket,3,66.59,15.0,169.8
+ORD-10835,2023-12-27,North,Electronics,Smartphone X,1,365.46,15.0,310.64
+ORD-10836,2023-11-04,South,Home & Kitchen,Cookware Set,5,154.09,15.0,654.88
+ORD-10837,2023-02-05,East,Books,Clean Code,8,21.28,0.0,170.24
+ORD-10838,2023-09-25,North,Home & Kitchen,Coffee Maker,7,65.82,20.0,368.59
+ORD-10839,2023-03-28,East,Electronics,Laptop Pro,2,254.23,0.0,508.46
+ORD-10840,2023-08-06,East,Home & Kitchen,Blender 500W,7,197.61,10.0,1244.94
+ORD-10841,2023-11-05,East,Books,Clean Code,8,20.16,0.0,161.28
+ORD-10842,2023-09-08,North,Apparel,Denim Jeans,1,29.96,0.0,29.96
+ORD-10843,2023-01-14,East,Books,Clean Code,2,20.35,0.0,40.7
+ORD-10844,2023-09-24,South,Home & Kitchen,Cookware Set,8,98.12,15.0,667.22
+ORD-10845,2023-10-05,North,Electronics,Smartphone X,1,941.92,15.0,800.63
+ORD-10846,2023-07-12,North,Apparel,Cotton T-Shirt,5,37.69,5.0,179.03
+ORD-10847,2023-03-10,West,Electronics,4K Monitor,3,744.69,15.0,1898.96
+ORD-10848,2023-12-17,West,Apparel,Running Shoes,3,76.23,20.0,182.95
+ORD-10849,2023-05-15,East,Apparel,Running Shoes,5,96.65,10.0,434.93
+ORD-10850,2023-10-30,East,Electronics,Wireless Earbuds,3,784.31,0.0,2352.93
+ORD-10851,2023-11-17,West,Electronics,Smartphone X,2,380.27,15.0,646.46
+ORD-10852,2023-12-05,East,Electronics,Laptop Pro,3,595.5,0.0,1786.5
+ORD-10853,2023-02-28,East,Electronics,Smartphone X,3,112.52,15.0,286.93
+ORD-10854,2023-08-04,North,Electronics,4K Monitor,2,937.62,20.0,1500.19
+ORD-10855,2023-10-21,North,Electronics,4K Monitor,1,681.05,10.0,612.94
+ORD-10856,2023-12-08,East,Electronics,Wireless Earbuds,1,923.4,15.0,784.89
+ORD-10857,2023-02-08,East,Home & Kitchen,Air Fryer,5,92.01,20.0,368.04
+ORD-10858,2023-04-26,North,Home & Kitchen,Coffee Maker,5,162.25,0.0,811.25
+ORD-10859,2023-09-29,East,Apparel,Denim Jeans,5,99.57,20.0,398.28
+ORD-10860,2023-08-10,South,Home & Kitchen,Blender 500W,5,124.08,20.0,496.32
+ORD-10861,2023-12-10,North,Home & Kitchen,Air Fryer,3,169.99,20.0,407.98
+ORD-10862,2023-12-05,East,Books,Clean Code,7,47.8,20.0,267.68
+ORD-10863,2023-01-31,West,Apparel,Winter Jacket,3,34.77,10.0,93.88
+ORD-10864,2023-07-30,South,Electronics,Smartphone X,2,815.99,10.0,1468.78
+ORD-10865,2023-05-12,West,Home & Kitchen,Air Fryer,3,86.27,5.0,245.87
+ORD-10866,2023-06-08,West,Apparel,Running Shoes,1,84.69,5.0,80.46
+ORD-10867,2023-03-11,South,Electronics,Wireless Earbuds,1,640.54,15.0,544.46
+ORD-10868,2023-01-29,East,Books,Data Science Handbook,2,36.06,15.0,61.3
+ORD-10869,2023-12-10,West,Home & Kitchen,Coffee Maker,3,237.78,5.0,677.67
+ORD-10870,2023-09-14,West,Books,Business Strategy,4,45.96,20.0,147.07
+ORD-10871,2023-06-10,South,Electronics,4K Monitor,1,893.89,5.0,849.2
+ORD-10872,2023-04-20,West,Books,Clean Code,1,23.9,15.0,20.31
+ORD-10873,2023-12-25,West,Books,Business Strategy,4,31.62,10.0,113.83
+ORD-10874,2023-03-16,East,Apparel,Winter Jacket,1,22.11,0.0,22.11
+ORD-10875,2023-12-10,East,Electronics,4K Monitor,3,635.89,10.0,1716.9
+ORD-10876,2023-12-17,West,Electronics,Laptop Pro,2,417.97,10.0,752.35
+ORD-10877,2023-05-01,West,Electronics,Laptop Pro,3,629.28,15.0,1604.66
+ORD-10878,2023-05-21,West,Books,Clean Code,6,40.79,15.0,208.03
+ORD-10879,2023-02-21,North,Home & Kitchen,Blender 500W,6,110.65,15.0,564.32
+ORD-10880,2023-01-27,West,Home & Kitchen,Air Fryer,3,205.07,0.0,615.21
+ORD-10881,2023-11-18,North,Electronics,Smartphone X,3,217.31,5.0,619.33
+ORD-10882,2023-12-18,West,Apparel,Winter Jacket,3,67.84,10.0,183.17
+ORD-10883,2023-10-31,South,Home & Kitchen,Blender 500W,6,53.15,5.0,302.95
+ORD-10884,2023-07-13,North,Books,AI Revolution,4,48.18,0.0,192.72
+ORD-10885,2023-04-12,North,Electronics,Laptop Pro,2,428.9,20.0,686.24
+ORD-10886,2023-02-15,North,Books,AI Revolution,7,15.49,15.0,92.17
+ORD-10887,2023-09-11,South,Electronics,Laptop Pro,2,903.07,10.0,1625.53
+ORD-10888,2023-07-15,South,Electronics,Laptop Pro,2,945.83,5.0,1797.08
+ORD-10889,2023-07-29,East,Home & Kitchen,Coffee Maker,4,244.87,20.0,783.58
+ORD-10890,2023-05-08,North,Apparel,Running Shoes,3,21.03,10.0,56.78
+ORD-10891,2023-07-23,West,Home & Kitchen,Cookware Set,5,193.26,0.0,966.3
+ORD-10892,2023-01-31,West,Electronics,Laptop Pro,3,870.16,20.0,2088.38
+ORD-10893,2023-01-24,East,Electronics,4K Monitor,3,930.45,10.0,2512.22
+ORD-10894,2023-10-14,East,Electronics,Laptop Pro,2,227.78,10.0,410.0
+ORD-10895,2023-03-09,South,Electronics,4K Monitor,2,306.55,0.0,613.1
+ORD-10896,2023-09-13,East,Books,Business Strategy,5,47.42,10.0,213.39
+ORD-10897,2023-05-16,South,Apparel,Running Shoes,8,51.55,5.0,391.78
+ORD-10898,2023-12-03,North,Home & Kitchen,Cookware Set,1,75.62,5.0,71.84
+ORD-10901,2023-02-27,North,Home & Kitchen,Air Fryer,4,110.16,10.0,396.58
+ORD-10902,2023-03-28,South,Home & Kitchen,Blender 500W,1,160.46,20.0,128.37
+ORD-10903,2023-04-03,South,Apparel,Cotton T-Shirt,2,96.83,10.0,174.29
+ORD-10904,2023-12-15,West,Books,Data Science Handbook,2,28.07,10.0,50.53
+ORD-10905,2023-02-11,West,Apparel,Running Shoes,5,82.84,20.0,331.36
+ORD-10906,2023-06-18,East,Books,Clean Code,3,48.16,5.0,137.26
+ORD-10907,2023-11-26,North,Electronics,Smartphone X,3,556.03,15.0,1417.88
+ORD-10908,2023-05-11,North,Electronics,4K Monitor,1,97.85,5.0,92.96
+ORD-10909,2023-07-26,North,Electronics,Laptop Pro,2,339.74,10.0,611.53
+ORD-10910,2023-11-05,East,Electronics,Smartphone X,2,526.01,15.0,894.22
+ORD-10911,2023-09-01,North,Electronics,4K Monitor,2,738.15,20.0,1181.04
+ORD-10912,2023-11-19,East,Apparel,Cotton T-Shirt,4,117.33,5.0,445.85
+ORD-10913,2023-09-27,East,Home & Kitchen,Coffee Maker,2,135.67,15.0,230.64
+ORD-10914,2023-03-07,South,Home & Kitchen,Blender 500W,5,147.46,20.0,589.84
+ORD-10915,2023-02-09,West,Books,Data Science Handbook,8,29.46,20.0,188.54
+ORD-10916,2023-07-01,North,Electronics,Smartphone X,3,179.12,15.0,456.76
+ORD-10917,2023-04-04,North,Home & Kitchen,Coffee Maker,5,124.49,10.0,560.2
+ORD-10918,2023-08-21,East,Home & Kitchen,Cookware Set,3,108.39,5.0,308.91
+ORD-10919,2023-11-06,West,Electronics,Smartphone X,1,544.91,15.0,463.17
+ORD-10920,2023-03-29,West,Home & Kitchen,Cookware Set,8,221.79,10.0,1596.89
+ORD-10921,2023-11-12,East,Apparel,Running Shoes,3,28.76,0.0,86.28
+ORD-10922,2023-01-09,North,Home & Kitchen,Air Fryer,3,79.98,5.0,227.94
+ORD-10923,2023-11-17,North,Books,AI Revolution,8,25.53,5.0,194.03
+ORD-10924,2023-01-12,West,Electronics,Laptop Pro,2,918.56,0.0,1837.12
+ORD-10925,2023-10-27,West,Electronics,Wireless Earbuds,1,124.3,0.0,124.3
+ORD-10926,2023-08-10,East,Books,Clean Code,7,16.3,15.0,96.98
+ORD-10927,2023-11-10,South,Books,Clean Code,1,40.0,15.0,34.0
+ORD-10928,2023-10-11,West,Electronics,4K Monitor,3,181.74,10.0,490.7
+ORD-10929,2023-08-12,South,Electronics,Wireless Earbuds,2,488.24,5.0,927.66
+ORD-10930,2023-10-28,West,Books,Business Strategy,5,19.59,15.0,83.26
+ORD-10931,2023-12-11,West,Home & Kitchen,Blender 500W,3,206.95,20.0,496.68
+ORD-10932,2023-12-20,South,Home & Kitchen,Cookware Set,3,72.26,20.0,173.42
+ORD-10933,2023-08-01,East,Books,Clean Code,1,23.22,0.0,23.22
+ORD-10934,2023-05-14,South,Apparel,Denim Jeans,1,102.79,0.0,102.79
+ORD-10935,2023-02-28,South,Home & Kitchen,Coffee Maker,6,139.57,10.0,753.68
+ORD-10936,2023-10-13,North,Electronics,Laptop Pro,2,694.57,15.0,1180.77
+ORD-10937,2023-02-26,North,Books,Data Science Handbook,3,32.76,0.0,98.28
+ORD-10939,2023-09-13,South,Home & Kitchen,Coffee Maker,6,174.12,5.0,992.48
+ORD-10940,2023-04-14,North,Apparel,Running Shoes,8,44.53,10.0,320.62
+ORD-10941,2023-03-29,West,Electronics,Wireless Earbuds,3,393.76,5.0,1122.22
+ORD-10942,2023-09-29,South,Apparel,Denim Jeans,7,100.18,15.0,596.07
+ORD-10943,2023-09-22,North,Home & Kitchen,Blender 500W,1,130.15,20.0,104.12
+ORD-10944,2023-02-13,South,Electronics,4K Monitor,2,457.64,0.0,915.28
+ORD-10945,2023-11-25,East,Electronics,Smartphone X,3,444.8,20.0,1067.52
+ORD-10946,2023-06-10,East,Books,Data Science Handbook,3,46.51,15.0,118.6
+ORD-10947,2023-04-16,East,Books,Clean Code,7,46.07,5.0,306.37
+ORD-10948,2023-02-13,West,Electronics,Wireless Earbuds,3,710.84,5.0,2025.89
+ORD-10949,2023-10-04,East,Electronics,Smartphone X,3,533.56,5.0,1520.65
+ORD-10950,2023-10-04,East,Apparel,Denim Jeans,2,92.65,0.0,185.3
+ORD-10951,2023-05-13,North,Home & Kitchen,Blender 500W,2,45.26,15.0,76.94
+ORD-10952,2023-01-03,South,Apparel,Denim Jeans,5,55.03,20.0,220.12
+ORD-10953,2023-07-13,North,Apparel,Denim Jeans,4,52.78,10.0,190.01
+ORD-10954,2023-03-17,North,Home & Kitchen,Cookware Set,7,54.83,5.0,364.62
+ORD-10955,2023-08-17,West,Electronics,4K Monitor,3,588.34,15.0,1500.27
+ORD-10956,2023-12-19,West,Books,Clean Code,3,43.83,20.0,105.19
+ORD-10957,2023-12-31,South,Apparel,Cotton T-Shirt,1,65.54,5.0,62.26
+ORD-10958,2023-07-09,West,Books,Data Science Handbook,6,18.86,20.0,90.53
+ORD-10959,2023-09-25,East,Electronics,Wireless Earbuds,2,942.19,10.0,1695.94
+ORD-10960,2023-03-15,North,Electronics,4K Monitor,2,895.03,10.0,1611.05
+ORD-10961,2023-09-08,North,Electronics,Wireless Earbuds,2,837.27,15.0,1423.36
+ORD-10962,2023-10-17,West,Apparel,Winter Jacket,3,67.52,5.0,192.43
+ORD-10963,2023-08-24,South,Home & Kitchen,Cookware Set,6,221.26,0.0,1327.56
+ORD-10964,2023-12-07,South,Home & Kitchen,Cookware Set,6,228.55,20.0,1097.04
+ORD-10965,2023-12-10,North,Books,Business Strategy,1,45.31,20.0,36.25
+ORD-10966,2023-12-29,North,Electronics,Smartphone X,3,247.41,20.0,593.78
+ORD-10967,2023-01-28,West,Books,AI Revolution,1,32.59,0.0,32.59
+ORD-10968,2023-09-30,East,Electronics,Smartphone X,1,764.48,20.0,611.58
+ORD-10969,2023-10-01,North,Home & Kitchen,Cookware Set,1,140.67,10.0,126.6
+ORD-10971,2023-02-28,East,Books,AI Revolution,5,20.04,0.0,100.2
+ORD-10972,2023-07-28,East,Home & Kitchen,Coffee Maker,1,74.01,10.0,66.61
+ORD-10973,2023-06-13,East,Electronics,Wireless Earbuds,1,406.7,0.0,406.7
+ORD-10974,2023-11-02,West,Apparel,Running Shoes,5,114.94,0.0,574.7
+ORD-10975,2023-10-11,North,Apparel,Running Shoes,4,60.75,0.0,243.0
+ORD-10976,2023-10-28,South,Home & Kitchen,Air Fryer,7,100.49,15.0,597.92
+ORD-10977,2023-11-22,East,Apparel,Denim Jeans,3,74.04,5.0,211.01
+ORD-10978,2023-08-05,North,Books,Clean Code,8,15.04,20.0,96.26
+ORD-10979,2023-03-27,East,Electronics,4K Monitor,3,600.14,15.0,1530.36
+ORD-10980,2023-11-20,North,Electronics,Wireless Earbuds,3,220.43,20.0,529.03
+ORD-10981,2023-02-15,South,Apparel,Cotton T-Shirt,5,92.51,15.0,393.17
+ORD-10982,2023-09-16,East,Books,Business Strategy,8,37.23,10.0,268.06
+ORD-10983,2023-06-14,East,Electronics,4K Monitor,3,93.81,5.0,267.36
+ORD-10984,2023-01-02,North,Home & Kitchen,Coffee Maker,7,179.63,20.0,1005.93
+ORD-10985,2023-12-27,North,Apparel,Running Shoes,2,98.73,20.0,157.97
+ORD-10986,2023-12-10,East,Apparel,Cotton T-Shirt,7,117.2,20.0,656.32
+ORD-10987,2023-04-01,North,Home & Kitchen,Coffee Maker,4,134.48,,457.23
+ORD-10988,2023-01-11,South,Home & Kitchen,Blender 500W,5,54.34,5.0,258.12
+ORD-10989,2023-09-10,East,Books,Data Science Handbook,4,32.25,0.0,129.0
+ORD-10990,2023-11-23,West,Apparel,Winter Jacket,4,37.05,20.0,118.56
+ORD-10991,2023-11-05,South,Apparel,Cotton T-Shirt,3,94.6,10.0,255.42
+ORD-10992,2023-04-27,South,Books,Business Strategy,1,44.67,20.0,35.74
+ORD-10993,2023-12-15,North,Apparel,Running Shoes,1,113.79,10.0,102.41
+ORD-10995,2023-01-23,North,Books,AI Revolution,7,24.73,20.0,138.49
+ORD-10996,2023-01-03,North,Apparel,Winter Jacket,1,108.01,5.0,102.61
+ORD-10997,2023-08-05,South,Books,AI Revolution,5,20.76,0.0,103.8
+ORD-10998,2023-02-19,North,Electronics,4K Monitor,3,595.5,10.0,1607.85
+ORD-10999,2023-05-07,East,Electronics,Laptop Pro,2,804.29,20.0,1286.86
+ORD-11000,2023-02-07,North,Home & Kitchen,Cookware Set,2,169.45,0.0,338.9

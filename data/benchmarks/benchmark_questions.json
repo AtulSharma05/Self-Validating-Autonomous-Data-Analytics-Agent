@@ -1,0 +1,136 @@
+[
+  {
+    "id": "Q01",
+    "category": "DESCRIPTIVE",
+    "difficulty": "Easy",
+    "question": "What is the total overall revenue across all orders?",
+    "target_table": "sample_retail_sales",
+    "metric": "revenue",
+    "ground_truth_sql": "SELECT CAST(SUM(revenue) AS DOUBLE) FROM sample_retail_sales",
+    "expected_value": 566489.94,
+    "tolerance_epsilon": 1.0
+  },
+  {
+    "id": "Q02",
+    "category": "DESCRIPTIVE",
+    "difficulty": "Easy",
+    "question": "What is the total quantity of units sold across all transactions?",
+    "target_table": "sample_retail_sales",
+    "metric": "units_sold",
+    "ground_truth_sql": "SELECT CAST(SUM(units_sold) AS DOUBLE) FROM sample_retail_sales",
+    "expected_value": 3659.0,
+    "tolerance_epsilon": 0.5
+  },
+  {
+    "id": "Q03",
+    "category": "DESCRIPTIVE",
+    "difficulty": "Easy",
+    "question": "What is the average transaction revenue?",
+    "target_table": "sample_retail_sales",
+    "metric": "revenue",
+    "ground_truth_sql": "SELECT CAST(AVG(revenue) AS DOUBLE) FROM sample_retail_sales",
+    "expected_value": 576.29,
+    "tolerance_epsilon": 0.5
+  },
+  {
+    "id": "Q04",
+    "category": "COMPARATIVE",
+    "difficulty": "Medium",
+    "question": "What is the total revenue generated specifically in the North region?",
+    "target_table": "sample_retail_sales",
+    "metric": "revenue",
+    "ground_truth_sql": "SELECT CAST(SUM(revenue) AS DOUBLE) FROM sample_retail_sales WHERE region = 'North'",
+    "expected_value": 138073.69,
+    "tolerance_epsilon": 1.0
+  },
+  {
+    "id": "Q05",
+    "category": "COMPARATIVE",
+    "difficulty": "Medium",
+    "question": "What is the total revenue generated in the South region?",
+    "target_table": "sample_retail_sales",
+    "metric": "revenue",
+    "ground_truth_sql": "SELECT CAST(SUM(revenue) AS DOUBLE) FROM sample_retail_sales WHERE region = 'South'",
+    "expected_value": 151768.30,
+    "tolerance_epsilon": 1.0
+  },
+  {
+    "id": "Q06",
+    "category": "COMPARATIVE",
+    "difficulty": "Medium",
+    "question": "What is the total revenue for the Electronics product category?",
+    "target_table": "sample_retail_sales",
+    "metric": "revenue",
+    "ground_truth_sql": "SELECT CAST(SUM(revenue) AS DOUBLE) FROM sample_retail_sales WHERE product_category = 'Electronics'",
+    "expected_value": 333809.18,
+    "tolerance_epsilon": 1.0
+  },
+  {
+    "id": "Q07",
+    "category": "COMPARATIVE",
+    "difficulty": "Medium",
+    "question": "What is the total revenue for the Apparel category?",
+    "target_table": "sample_retail_sales",
+    "metric": "revenue",
+    "ground_truth_sql": "SELECT CAST(SUM(revenue) AS DOUBLE) FROM sample_retail_sales WHERE product_category = 'Apparel'",
+    "expected_value": 69563.65,
+    "tolerance_epsilon": 1.0
+  },
+  {
+    "id": "Q08",
+    "category": "COMPARATIVE",
+    "difficulty": "Medium",
+    "question": "What was the total revenue in the first half of 2023 (before July 1)?",
+    "target_table": "sample_retail_sales",
+    "metric": "revenue",
+    "ground_truth_sql": "SELECT CAST(SUM(revenue) AS DOUBLE) FROM sample_retail_sales WHERE order_date < '2023-07-01'",
+    "expected_value": 275063.52,
+    "tolerance_epsilon": 1.0
+  },
+  {
+    "id": "Q09",
+    "category": "COMPARATIVE",
+    "difficulty": "Medium",
+    "question": "What was the total revenue in the second half of 2023 (from July 1 onwards)?",
+    "target_table": "sample_retail_sales",
+    "metric": "revenue",
+    "ground_truth_sql": "SELECT CAST(SUM(revenue) AS DOUBLE) FROM sample_retail_sales WHERE order_date >= '2023-07-01'",
+    "expected_value": 291426.42,
+    "tolerance_epsilon": 1.0
+  },
+  {
+    "id": "Q10",
+    "category": "DIAGNOSTIC",
+    "difficulty": "Hard",
+    "question": "Why did revenue change between H1 and H2 in 2023, and what was the net variance delta?",
+    "target_table": "sample_retail_sales",
+    "metric": "revenue",
+    "ground_truth_sql": "SELECT CAST((SELECT SUM(revenue) FROM sample_retail_sales WHERE order_date >= '2023-07-01') - (SELECT SUM(revenue) FROM sample_retail_sales WHERE order_date < '2023-07-01') AS DOUBLE)",
+    "expected_value": 16362.90,
+    "tolerance_epsilon": 1.0
+  },
+  {
+    "id": "Q11",
+    "category": "STRESS_TEST",
+    "difficulty": "Stress",
+    "question": "Calculate the average discount percentage without allowing values outside 0 to 100 percent.",
+    "target_table": "sample_retail_sales",
+    "metric": "discount_pct",
+    "ground_truth_sql": "SELECT CAST(AVG(discount_pct) AS DOUBLE) FROM sample_retail_sales WHERE discount_pct BETWEEN 0 AND 100",
+    "expected_value": 4.88,
+    "tolerance_epsilon": 0.5
+  },
+  {
+    "id": "Q12",
+    "category": "INSUFFICIENT_DATA",
+    "difficulty": "Stress",
+    "question": "What was total revenue generated in year 2021?",
+    "target_table": "sample_retail_sales",
+    "metric": "revenue",
+    "ground_truth_sql": "SELECT CAST(COALESCE(SUM(revenue), 0.0) AS DOUBLE) FROM sample_retail_sales WHERE order_date BETWEEN '2021-01-01' AND '2021-12-31'",
+    "expected_value": 0.0,
+    "tolerance_epsilon": 0.01,
+    "expect_empty_or_refusal": true
+  }
+]
+

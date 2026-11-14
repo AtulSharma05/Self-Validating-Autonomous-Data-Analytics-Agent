@@ -1,0 +1,37 @@
+# Core Data Processing & Analytical SQL
+duckdb>=1.1.0
+pandas>=2.2.0
+numpy>=1.26.0
+openpyxl>=3.1.5
+pyarrow>=15.0.0
+sqlglot>=25.0.0
+
+# Schemas & Configuration
+pydantic>=2.8.0
+pydantic-settings>=2.4.0
+python-dotenv>=1.0.0
+
+# Agent Orchestration & LLM Connectors
+langgraph>=0.2.0
+langchain-core>=0.3.0
+langchain-community>=0.3.0
+langchain-ollama>=0.2.0
+google-genai>=1.0.0
+
+# Optional LLM providers (install when using the respective model_provider setting)
+# langchain-google-genai>=2.0.0  # for model_provider="gemini"
+# langchain-openai>=0.2.0        # for model_provider="openai"
+
+# Provenance & Graph Analytics
+networkx>=3.2.0
+
+# API & Frontend Dashboard
+fastapi>=0.112.0
+uvicorn>=0.30.0
+python-multipart>=0.0.9   # file upload support for FastAPI
+httpx>=0.27.0              # async HTTP (FastAPI test client + internal requests)
+streamlit>=1.38.0
+plotly>=5.22.0
+
+# Testing & Benchmark Evaluation
+pytest>=8.3.0
