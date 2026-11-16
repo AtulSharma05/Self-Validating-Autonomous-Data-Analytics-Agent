@@ -243,7 +243,7 @@ python3 -m venv .venv
 source .venv/bin/activate
 
 # Windows (Command Prompt / PowerShell)
-# python -m venv .venv
+# python -m venv .venv 
 # .venv\Scripts\activate
 ```
 

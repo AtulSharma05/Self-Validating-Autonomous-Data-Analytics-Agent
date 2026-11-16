@@ -19,6 +19,7 @@ from src.agent.schemas import (
     RCAReport,
     SemanticCoverageReport,
 )
+from src.agent.air import MasterAIR
 from src.reporting.confidence import ECSReport
 
 
@@ -34,6 +35,13 @@ class AnalyticsAgentState(TypedDict, total=False):
     # Extracted objective & plan
     objective: Optional[AnalysisObjective]
     plan: Optional[AnalysisPlan]
+    air: Optional[MasterAIR]
+    air_diagnostic: Optional[str]
+    compilation_error: Optional[str]
+    verification_error: Optional[str]
+    contracts: Optional[Dict[str, Any]]
+    current_contract: Optional[Any]
+    current_receipt: Optional[Any]
     current_step_index: int
 
     # Current execution & validation artifacts
@@ -59,6 +67,7 @@ class AnalyticsAgentState(TypedDict, total=False):
     rca_report: Optional[RCAReport]
     ecs_report: Optional[ECSReport]
     provenance_dag: Optional[Dict[str, Any]]
+    missing_sales_diagnostics: Optional[Dict[str, int]]
 
     # Independent validation & coverage statuses
     semantic_coverage: Optional[SemanticCoverageReport]
@@ -72,4 +81,16 @@ class AnalyticsAgentState(TypedDict, total=False):
     # Diagnostic flag
     is_diagnostic: bool
     status: str
+
+    # AIR Phase 4.0 Capability Registry Integration
+    execution_mode: Optional[Any]
+    registry_mode: Optional[bool]
+    composed_contract: Optional[Any]
+    capability_dag: Optional[Any]
+    deterministic_sql: Optional[str]
+    raw_dataframe: Optional[Any]
+    dimension_authorizations: Optional[Any]
+    dimensions: Optional[Any]
+    group_hint: Optional[str]
+    filter_hint: Optional[str]
 

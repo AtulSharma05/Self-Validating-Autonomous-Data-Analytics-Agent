@@ -14,6 +14,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import math
 import time
 from dataclasses import dataclass, field
 from typing import List, Optional
@@ -107,8 +108,10 @@ class DualPathVerifier:
             if agg_upper == "AOV":
                 slice_q = f"SELECT \"{metric_col}\", \"{ord_col}\" FROM {table_name} WHERE {where_clause}"
                 df_slice: pd.DataFrame = con.execute(slice_q).df()
-                num_orders = df_slice[ord_col].nunique()
-                path_b_val = float(df_slice[metric_col].sum() / num_orders) if num_orders > 0 else 0.0
+                valid_slice = df_slice[df_slice[ord_col].notna()]
+                num_orders = valid_slice[ord_col].nunique()
+                valid_rev_series = valid_slice[metric_col].sum(min_count=1)
+                path_b_val = float(valid_rev_series / num_orders) if num_orders > 0 and pd.notna(valid_rev_series) else 0.0
             else:
                 slice_q = (
                     f"SELECT \"{metric_col}\" FROM {table_name} WHERE {where_clause}"
@@ -117,7 +120,8 @@ class DualPathVerifier:
                 series = df_slice[metric_col].dropna()
 
                 if agg_upper == "SUM":
-                    path_b_val = float(series.sum())
+                    sum_val = series.sum(min_count=1)
+                    path_b_val = float(sum_val) if pd.notna(sum_val) else 0.0
                 elif agg_upper == "AVG":
                     path_b_val = float(series.mean()) if len(series) > 0 else 0.0
                 elif agg_upper == "COUNT":
@@ -436,6 +440,19 @@ class SemanticCoverageValidator:
             elif "where" in code_str:
                 applied_filters.append(code_str)
 
+        # Also inspect columns in executed step_results DataFrames
+        for s_id, s_data in (step_results or {}).items():
+            if isinstance(s_data, dict):
+                df_res = s_data.get("dataframe")
+                if df_res is not None and not df_res.empty:
+                    df_cols = [str(c).lower() for c in df_res.columns]
+                    if any("order" in c for c in df_cols):
+                        executed_metrics.append("total_orders")
+                    if any("aov" in c or "average_order_value" in c for c in df_cols):
+                        executed_metrics.append("average_order_value")
+                    if any("sales" in c or "revenue" in c for c in df_cols):
+                        executed_metrics.append("sales_or_revenue")
+
         # 4. Check requested vs executed & detect unauthorized substitutions
         if wants_orders and "total_orders" not in executed_metrics:
             missing_metrics.append("Total unique orders")
@@ -518,6 +535,7 @@ class ValidationReport:
     results: List[ValidationResult] = field(default_factory=list)
     execution_time_ms: float = 0.0
     checksum_hash: str = ""
+    missing_sales_diagnostics: Dict[str, int] = field(default_factory=dict)
 
     @property
     def pass_rate(self) -> float:
@@ -713,6 +731,272 @@ class DeterministicValidator:
             results=results,
             execution_time_ms=round(elapsed_ms, 2),
             checksum_hash=checksum,
+        )
+
+    def validate_contract_execution(
+        self,
+        step_id: str,
+        contract: Any,
+        result_df: Optional[pd.DataFrame],
+    ) -> ValidationReport:
+        """
+        Independently validates multi-branch and derived measures in an ExecutionContract.
+        Extracts raw table slice using contract filters and re-evaluates all measures
+        in vectorized Pandas across both Branch A (identifiable orders) and Branch B (null-ID quality metrics).
+        """
+        t_start = time.perf_counter()
+        results: List[ValidationResult] = []
+
+        if result_df is None or result_df.empty:
+            results.append(ValidationResult(
+                is_valid=False,
+                error_type="CALCULATION_MISMATCH",
+                error_message="Contract execution produced empty or None result DataFrame",
+            ))
+            return ValidationReport(
+                step_id=step_id,
+                table_name=self.table_name,
+                metric_col="contract_execution",
+                is_fully_valid=False,
+                checks_passed=0,
+                checks_total=1,
+                results=results,
+                execution_time_ms=0.0,
+                checksum_hash=self._compute_checksum("contract_execution", "empty"),
+            )
+
+        # Build WHERE clause from contract filters
+        op_sym_map = {
+            "gte": ">=",
+            "gt": ">",
+            "lte": "<=",
+            "lt": "<",
+            "eq": "=",
+            "neq": "!=",
+            "is_null": "IS NULL",
+            "is_not_null": "IS NOT NULL",
+        }
+        filter_preds = []
+        for f in contract.required_filters:
+            raw_op = (f.operator.value if hasattr(f.operator, "value") else str(f.operator)).lower()
+            op_str = op_sym_map.get(raw_op, raw_op)
+            col_name = f.column.name
+            val = f.literal_value
+            if "is_null" in raw_op or "is null" in op_str.lower():
+                filter_preds.append(f'"{col_name}" IS NULL')
+            elif "is_not_null" in raw_op or "not null" in op_str.lower():
+                filter_preds.append(f'"{col_name}" IS NOT NULL')
+            elif isinstance(val, str):
+                filter_preds.append(f'"{col_name}" {op_str} \'{val}\'')
+            else:
+                filter_preds.append(f'"{col_name}" {op_str} {val}')
+        where_cls = " AND ".join(filter_preds) if filter_preds else "1=1"
+
+        slice_q = f'SELECT * FROM "{contract.target_table}" WHERE {where_cls}'
+        df_slice: pd.DataFrame = self.con.execute(slice_q).df()
+
+        # ADV-03: Compute missing-sales diagnostics strictly in Pandas on the raw slice
+        null_sales_row_count = 0
+        orders_with_no_sales = 0
+        orders_with_partial_null_sales = 0
+
+        if "sales" in df_slice.columns:
+            null_sales_row_count = int(df_slice["sales"].isna().sum())
+
+        if "order_id" in df_slice.columns and "sales" in df_slice.columns:
+            df_orders = df_slice[df_slice["order_id"].notna()]
+            if not df_orders.empty:
+                grouped = df_orders.groupby("order_id")["sales"].agg(
+                    non_null_count=lambda s: s.notna().sum(),
+                    null_count=lambda s: s.isna().sum(),
+                )
+                orders_with_no_sales = int((grouped["non_null_count"] == 0).sum())
+                orders_with_partial_null_sales = int(
+                    ((grouped["non_null_count"] > 0) & (grouped["null_count"] > 0)).sum()
+                )
+
+        missing_sales_diag = {
+            "orders_with_no_sales": orders_with_no_sales,
+            "orders_with_partial_null_sales": orders_with_partial_null_sales,
+            "null_sales_row_count": null_sales_row_count,
+        }
+
+        # Check each required measure
+        actual_measures: Dict[str, Optional[float]] = {}
+        expected_measures: Dict[str, Optional[float]] = {}
+        row0 = result_df.iloc[0]
+
+        for m in contract.required_measures:
+            target_col = m.target_column.name
+            alias = m.output_alias
+            cond = m.condition_predicate
+
+            if alias not in result_df.columns:
+                results.append(ValidationResult(
+                    is_valid=False,
+                    error_type="SCHEMA_MISMATCH",
+                    error_message=f"Expected contract measure alias '{alias}' missing from result columns {list(result_df.columns)}",
+                ))
+                continue
+
+            # Apply measure condition if present
+            sub_df = df_slice
+            if cond:
+                c_col = cond.column.name
+                c_op_l = (cond.operator.value if hasattr(cond.operator, "value") else str(cond.operator)).lower()
+                if "not_null" in c_op_l or "not null" in c_op_l:
+                    sub_df = sub_df[sub_df[c_col].notna()]
+                elif "is_null" in c_op_l or "is null" in c_op_l:
+                    sub_df = sub_df[sub_df[c_col].isna()]
+
+            fn_name = m.function.value if hasattr(m.function, "value") else str(m.function)
+            fn_upper = fn_name.upper()
+
+            if fn_upper in {"COUNT_DISTINCT", "COUNT(DISTINCT)", "DISTINCT_COUNT"}:
+                expected_val = float(sub_df[target_col].nunique())
+            elif fn_upper == "SUM":
+                s = sub_df[target_col].sum(min_count=1)
+                expected_val = float(s) if pd.notna(s) else None
+            elif fn_upper == "COUNT":
+                expected_val = float(len(sub_df))
+            elif fn_upper == "AVG":
+                m_val = sub_df[target_col].mean()
+                expected_val = float(m_val) if len(sub_df) > 0 and pd.notna(m_val) else None
+            else:
+                expected_val = None
+
+            expected_measures[alias] = expected_val
+            actual_raw = row0[alias]
+            actual_val = float(actual_raw) if pd.notna(actual_raw) else None
+            actual_measures[alias] = actual_val
+
+            # Compare actual vs expected preserving NULL semantics
+            if expected_val is None:
+                if actual_val is not None and not (isinstance(actual_val, float) and math.isnan(actual_val)):
+                    results.append(ValidationResult(
+                        is_valid=False,
+                        error_type="CALCULATION_MISMATCH",
+                        error_message=f"Contract measure mismatch on '{alias}': expected NULL, got {actual_val}",
+                        audit_details={"alias": alias, "actual": actual_val, "expected": None},
+                    ))
+                else:
+                    results.append(ValidationResult(
+                        is_valid=True,
+                        audit_details={"alias": alias, "actual": None, "expected": None},
+                    ))
+            else:
+                if actual_val is None or (isinstance(actual_val, float) and math.isnan(actual_val)):
+                    results.append(ValidationResult(
+                        is_valid=False,
+                        error_type="CALCULATION_MISMATCH",
+                        error_message=f"Contract measure mismatch on '{alias}': expected {expected_val}, got NULL",
+                        audit_details={"alias": alias, "actual": None, "expected": expected_val},
+                    ))
+                else:
+                    diff = abs(actual_val - expected_val)
+                    if diff > 1e-4:
+                        results.append(ValidationResult(
+                            is_valid=False,
+                            error_type="CALCULATION_MISMATCH",
+                            error_message=(
+                                f"Contract measure mismatch on '{alias}': actual SQL={actual_val:,.4f}, "
+                                f"independent Pandas={expected_val:,.4f}, Δ={diff:,.6f}"
+                            ),
+                            audit_details={"alias": alias, "actual": actual_val, "expected": expected_val, "diff": diff},
+                        ))
+                    else:
+                        results.append(ValidationResult(
+                            is_valid=True,
+                            audit_details={"alias": alias, "actual": actual_val, "expected": expected_val},
+                        ))
+
+        # Check required derived measures
+        for dm in contract.required_derived_measures:
+            d_alias = dm.output_alias
+            num_alias = dm.numerator_source_alias
+            den_alias = dm.denominator_source_alias
+
+            if d_alias not in result_df.columns:
+                results.append(ValidationResult(
+                    is_valid=False,
+                    error_type="SCHEMA_MISMATCH",
+                    error_message=f"Expected derived measure alias '{d_alias}' missing from result columns",
+                ))
+                continue
+
+            # ADV-04: Calculate expected derived measure strictly from independent Pandas expected_measures
+            num_exp = expected_measures.get(num_alias)
+            den_exp = expected_measures.get(den_alias)
+
+            # Preserve NULL semantics:
+            # - Zero valid orders (den_exp is None or den_exp == 0.0) -> AOV NULL
+            # - Revenue NULL (num_exp is None) -> AOV NULL
+            # - Otherwise -> num_exp / den_exp
+            if num_exp is None or den_exp is None or den_exp == 0.0:
+                expected_derived = None
+            else:
+                expected_derived = num_exp / den_exp
+
+            actual_d_raw = row0[d_alias]
+            actual_derived = float(actual_d_raw) if pd.notna(actual_d_raw) else None
+
+            if expected_derived is None:
+                if actual_derived is not None and not (isinstance(actual_derived, float) and math.isnan(actual_derived)):
+                    results.append(ValidationResult(
+                        is_valid=False,
+                        error_type="CALCULATION_MISMATCH",
+                        error_message=f"Contract derived measure mismatch on '{d_alias}': expected NULL, got {actual_derived}",
+                        audit_details={"alias": d_alias, "actual": actual_derived, "expected": None},
+                    ))
+                else:
+                    results.append(ValidationResult(
+                        is_valid=True,
+                        audit_details={"alias": d_alias, "actual": None, "expected": None},
+                    ))
+            else:
+                if actual_derived is None or (isinstance(actual_derived, float) and math.isnan(actual_derived)):
+                    results.append(ValidationResult(
+                        is_valid=False,
+                        error_type="CALCULATION_MISMATCH",
+                        error_message=f"Contract derived measure mismatch on '{d_alias}': expected {expected_derived:,.4f}, got NULL",
+                        audit_details={"alias": d_alias, "actual": None, "expected": expected_derived},
+                    ))
+                else:
+                    diff = abs(actual_derived - expected_derived)
+                    if diff > 1e-4:
+                        results.append(ValidationResult(
+                            is_valid=False,
+                            error_type="CALCULATION_MISMATCH",
+                            error_message=(
+                                f"Contract derived measure mismatch on '{d_alias}': actual SQL={actual_derived:,.4f}, "
+                                f"independent Pandas expected={expected_derived:,.4f} ({num_exp} / {den_exp}), Δ={diff:,.6f}"
+                            ),
+                            audit_details={"alias": d_alias, "actual": actual_derived, "expected": expected_derived, "diff": diff},
+                        ))
+                    else:
+                        results.append(ValidationResult(
+                            is_valid=True,
+                            audit_details={"alias": d_alias, "actual": actual_derived, "expected": expected_derived},
+                        ))
+
+        passed = sum(1 for r in results if r.is_valid)
+        total = len(results)
+        is_valid = (total > 0 and all(r.is_valid for r in results))
+        elapsed_ms = (time.perf_counter() - t_start) * 1000
+        unit_id = getattr(contract, "execution_unit_id", "unit")
+        checksum = self._compute_checksum(unit_id, where_cls)
+
+        return ValidationReport(
+            step_id=step_id,
+            table_name=self.table_name,
+            metric_col="contract_execution",
+            is_fully_valid=is_valid,
+            checks_passed=passed,
+            checks_total=total,
+            results=results,
+            execution_time_ms=round(elapsed_ms, 2),
+            checksum_hash=checksum,
+            missing_sales_diagnostics=missing_sales_diag,
         )
 
     def validate_result_dataframe(

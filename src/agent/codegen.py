@@ -24,6 +24,7 @@ from langchain_core.messages import HumanMessage, SystemMessage
 
 from src.agent.objective_extractor import _build_llm
 from src.agent.schemas import AnalysisObjective, DatasetProfile
+from src.agent.air.contract import ExecutionContract, PredicateOperator
 from src.config import settings
 
 
@@ -115,6 +116,26 @@ _CODEGEN_USER_TEMPLATE = """\
 {step_description}
 
 Generate the DuckDB SQL or Python code for this step:"""
+
+_CODEGEN_CONTRACT_USER_TEMPLATE = """\
+## Dataset Schema
+{schema}
+
+## Execution Contract & Analytical Boundaries (MANDATORY ENFORCEMENT)
+- Target Table: {target_table}
+- Authorized Grouping Dimensions (ONLY group by these): {authorized_group_by}
+- Forbidden Dimensions (NEVER group by or introduce these): {forbidden_group_by}
+- Required Filters (MUST be strictly applied in WHERE clause): {required_filters}
+- Required Measures (MUST be aggregated): {required_measures}
+- Expected Output Columns: {expected_columns}
+- Cardinality Expectation: {cardinality}
+
+{previous_context}
+
+## Step Description
+{step_description}
+
+Generate the DuckDB SQL code strictly adhering to the Execution Contract boundaries above:"""
 
 
 # ---------------------------------------------------------------------------
@@ -261,6 +282,156 @@ class CodeGenerator:
         except Exception:
             # Fallback to deterministic template code when LLM server is unreachable
             return self.create_template_code(profile, objective, step_description, previous_context=previous_context)
+
+    def generate_with_contract(
+        self,
+        profile: DatasetProfile,
+        contract: ExecutionContract,
+        step_description: str,
+        previous_context: str = "",
+    ) -> GeneratedCode:
+        """
+        Generate DuckDB SQL strictly governed by an authoritative ExecutionContract.
+        Informs the LLM of exact authorized grouping dimensions and explicitly forbids
+        unauthorized candidate dimensions.
+        """
+        schema_context = profile.to_compact_llm_context()
+        filters_str = "; ".join(p.describe() for p in contract.required_filters) or "none"
+        measures_str = "; ".join(
+            f"{m.function.value.upper()}({m.target_column.name}) AS {m.output_alias}"
+            for m in contract.required_measures
+        ) or "none"
+
+        user_content = _CODEGEN_CONTRACT_USER_TEMPLATE.format(
+            schema=schema_context,
+            target_table=contract.target_table,
+            authorized_group_by=", ".join(f'"{g}"' for g in contract.authorized_group_by) or "NONE (Scalar Aggregation)",
+            forbidden_group_by=", ".join(f'"{g}"' for g in contract.forbidden_group_by) or "NONE",
+            required_filters=filters_str,
+            required_measures=measures_str,
+            expected_columns=", ".join(contract.expected_output_columns.keys()),
+            cardinality=contract.expected_cardinality.value.upper(),
+            previous_context=f"## Previous Step Results\n{previous_context}" if previous_context else "",
+            step_description=step_description,
+        )
+
+        messages = [
+            SystemMessage(content=_CODEGEN_SYSTEM_PROMPT),
+            HumanMessage(content=user_content),
+        ]
+
+        try:
+            response = self.llm.invoke(messages)
+            raw_text = response.content if hasattr(response, "content") else str(response)
+            parsed = self._parse_response(raw_text)
+            return self._enforce_grain_rules(parsed, profile, step_description)
+        except Exception:
+            # Fallback to deterministic template code matching contract exactly
+            return self.create_contract_template_code(profile, contract, step_description, previous_context=previous_context)
+
+    def create_contract_template_code(
+        self,
+        profile: DatasetProfile,
+        contract: ExecutionContract,
+        step_description: str,
+        previous_context: str = "",
+    ) -> GeneratedCode:
+        """
+        Rule-based deterministic SQL generation strictly matching an ExecutionContract.
+        Ensures 100% offline test reliability and contract conformance.
+        """
+        select_parts = []
+        for grp in contract.authorized_group_by:
+            select_parts.append(f'"{grp}"')
+
+        order_alias = None
+        for m in contract.required_measures:
+            fn_upper = m.function.value.upper()
+            col_name = f'"{m.target_column.name}"'
+            cond = getattr(m, "condition_predicate", None)
+            if cond:
+                cond_col = f'"{cond.column.name}"'
+                if cond.operator == PredicateOperator.IS_NOT_NULL:
+                    if fn_upper in {"COUNT_DISTINCT", "COUNT(DISTINCT)"}:
+                        agg_expr = f'COUNT(DISTINCT {col_name})'
+                    else:
+                        agg_expr = f'CAST({fn_upper}(CASE WHEN {cond_col} IS NOT NULL THEN {col_name} ELSE NULL END) AS DOUBLE)'
+                elif cond.operator == PredicateOperator.IS_NULL:
+                    if fn_upper == "COUNT":
+                        agg_expr = f'CAST(COUNT(CASE WHEN {cond_col} IS NULL THEN 1 ELSE NULL END) AS BIGINT)'
+                    else:
+                        agg_expr = f'CAST({fn_upper}(CASE WHEN {cond_col} IS NULL THEN {col_name} ELSE NULL END) AS DOUBLE)'
+                else:
+                    agg_expr = f'CAST({fn_upper}({col_name}) AS DOUBLE)'
+            else:
+                if fn_upper in {"COUNT_DISTINCT", "COUNT(DISTINCT)"}:
+                    agg_expr = f'COUNT(DISTINCT {col_name})'
+                else:
+                    agg_expr = f'CAST({fn_upper}({col_name}) AS DOUBLE)'
+            alias = m.output_alias
+            select_parts.append(f'{agg_expr} AS {alias}')
+            if not order_alias:
+                order_alias = alias
+
+        for der in getattr(contract, "required_derived_measures", []):
+            num_req = next((m for m in contract.required_measures if m.output_alias == der.numerator_source_alias), None)
+            den_req = next((m for m in contract.required_measures if m.output_alias == der.denominator_source_alias), None)
+            
+            if num_req and getattr(num_req, "condition_predicate", None) and num_req.condition_predicate.operator == PredicateOperator.IS_NOT_NULL:
+                num_expr = f'CAST(SUM(CASE WHEN "{num_req.condition_predicate.column.name}" IS NOT NULL THEN "{num_req.target_column.name}" ELSE NULL END) AS DOUBLE)'
+            elif num_req:
+                num_expr = f'CAST(SUM("{num_req.target_column.name}") AS DOUBLE)'
+            else:
+                num_expr = f'CAST(SUM("sales") AS DOUBLE)'
+
+            if den_req:
+                den_expr = f'CAST(COUNT(DISTINCT "{den_req.target_column.name}") AS DOUBLE)'
+            else:
+                den_expr = f'CAST(COUNT(DISTINCT "order_id") AS DOUBLE)'
+
+            der_expr = f'{num_expr} / NULLIF({den_expr}, 0)'
+            select_parts.append(f'{der_expr} AS {der.output_alias}')
+
+        where_clauses = []
+        for p in contract.required_filters:
+            col_name = f'"{p.column.name}"'
+            if p.operator == PredicateOperator.GTE:
+                where_clauses.append(f"{col_name} >= '{p.literal_value}'")
+            elif p.operator == PredicateOperator.GT:
+                where_clauses.append(f"{col_name} > '{p.literal_value}'")
+            elif p.operator == PredicateOperator.LT:
+                where_clauses.append(f"{col_name} < '{p.literal_value}'")
+            elif p.operator == PredicateOperator.LTE:
+                where_clauses.append(f"{col_name} <= '{p.literal_value}'")
+            elif p.operator == PredicateOperator.EQ:
+                where_clauses.append(f"{col_name} = '{p.literal_value}'")
+            elif p.operator == PredicateOperator.BETWEEN_HALF_OPEN:
+                where_clauses.append(f"{col_name} >= '{p.literal_value}' AND {col_name} < '{p.secondary_literal}'")
+
+        where_str = f"WHERE {' AND '.join(where_clauses)}" if where_clauses else ""
+        group_str = f"GROUP BY {', '.join(f'\"{g}\"' for g in contract.authorized_group_by)}" if contract.authorized_group_by else ""
+        order_str = f"ORDER BY {order_alias} DESC" if order_alias else ""
+
+        query_parts = [
+            f"SELECT\n    " + ",\n    ".join(select_parts),
+            f"FROM {contract.target_table}",
+        ]
+        if where_str:
+            query_parts.append(where_str)
+        if group_str:
+            query_parts.append(group_str)
+        if order_str:
+            query_parts.append(order_str)
+
+        sql = "\n".join(query_parts)
+        is_valid, err = SQLValidator.validate(sql)
+        return GeneratedCode(
+            sql=sql,
+            raw_response=f"```sql\n{sql}\n```",
+            is_sql_valid=is_valid,
+            sql_validation_error=err,
+            code_type="sql",
+        )
 
     def _enforce_grain_rules(
         self,
@@ -777,4 +948,11 @@ Generate a corrected version:"""
             if re.match(r"^\s*(SELECT|WITH)", stripped, re.IGNORECASE):
                 return stripped
         return None
+
+
+def create_contract_template_code(contract: ExecutionContract) -> str:
+    """Convenience module-level helper to generate deterministic contract SQL."""
+    gen = CodeGenerator()
+    return gen.create_contract_template_code(None, contract, "").executable_code
+
 

@@ -37,6 +37,7 @@ import pandas as pd
 
 from src.config import settings
 from src.execution.error_classifier import ClassifiedError, ErrorClassifier
+from src.agent.air.contract import ExecutionContract, ExecutionReceipt
 
 
 # ---------------------------------------------------------------------------
@@ -101,17 +102,51 @@ class SandboxedSQLExecutor:
         self.con = con
         self.timeout = timeout_seconds or settings.execution_timeout_seconds
 
-    def execute(self, query: str) -> ExecutionResult:
+    def execute(
+        self,
+        query: str,
+        receipt: Optional[ExecutionReceipt] = None,
+        contract: Optional[ExecutionContract] = None,
+    ) -> ExecutionResult:
         """
         Execute a DuckDB SQL query safely.
+        When an ExecutionContract is provided, enforces that a valid ExecutionReceipt
+        matching the exact code and contract is verified before DuckDB execution.
 
         Args:
-            query: The SQL string to execute.
+            query:    The SQL string to execute.
+            receipt:  Immutable ExecutionReceipt issued by SQLASTConformanceVerifier.
+            contract: The active ExecutionContract.
 
         Returns:
             ExecutionResult with the query output or classified error.
         """
         query = query.strip()
+
+        # Gatekeeper: Refuse execution if contract is present but receipt is missing or mismatched
+        if contract is not None:
+            if receipt is None:
+                classified = ErrorClassifier.classify_message(
+                    "Sandbox Gatekeeper Violation: Missing ExecutionReceipt. Query execution blocked."
+                )
+                return ExecutionResult(
+                    success=False,
+                    query_executed=query,
+                    error=classified,
+                    stderr="Sandbox Gatekeeper: Missing ExecutionReceipt. Unvalidated query cannot execute in DuckDB.",
+                )
+            ok, err = receipt.matches(query, contract)
+            if not ok:
+                classified = ErrorClassifier.classify_message(
+                    f"Sandbox Gatekeeper Violation: {err}"
+                )
+                return ExecutionResult(
+                    success=False,
+                    query_executed=query,
+                    error=classified,
+                    stderr=f"Sandbox Gatekeeper: {err}",
+                )
+
         t_start = time.perf_counter()
 
         def _run():
